@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieList" customModule="TMDB" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="51X-im-S7x" id="tMa-PN-cOL"/>
+                <outlet property="filterSegment" destination="jss-KG-ivx" id="Ni5-9t-Z02"/>
+                <outlet property="networkErrorAlert" destination="SEf-4h-Qan" id="DJb-r4-J68"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7CZ-7b-wLQ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeZ-eO-Lfh">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jss-KG-ivx">
+                                    <rect key="frame" x="69.666666666666686" y="9.6666666666666643" width="275" height="32"/>
+                                    <segments>
+                                        <segment title="Nombre"/>
+                                        <segment title="Fecha"/>
+                                        <segment title="Rating"/>
+                                        <segment title="Likes"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="selectFilterWithControl:" destination="-1" eventType="valueChanged" id="ECx-am-USD"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="5e6-gX-byq"/>
+                                <constraint firstItem="jss-KG-ivx" firstAttribute="centerX" secondItem="GeZ-eO-Lfh" secondAttribute="centerX" id="D7Q-Am-7yI"/>
+                                <constraint firstItem="jss-KG-ivx" firstAttribute="centerY" secondItem="GeZ-eO-Lfh" secondAttribute="centerY" id="cRn-1D-Brw"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="51X-im-S7x">
+                            <rect key="frame" x="0.0" y="50" width="414" height="768"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="dH4-f4-U4C">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="T70-0h-eW0"/>
+                                <outlet property="delegate" destination="-1" id="fWS-Z4-dcn"/>
+                            </connections>
+                        </collectionView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEf-4h-Qan">
+                            <rect key="frame" x="0.0" y="818" width="414" height="0.0"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1E-L7-0X8">
+                                    <rect key="frame" x="65" y="-30.333333333333371" width="284.33333333333331" height="61"/>
+                                    <string key="text">Whoops!
+
+Parece que hay un error de conexión.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="O1E-L7-0X8" firstAttribute="centerX" secondItem="SEf-4h-Qan" secondAttribute="centerX" id="tlB-Ac-srR"/>
+                                <constraint firstItem="O1E-L7-0X8" firstAttribute="centerY" secondItem="SEf-4h-Qan" secondAttribute="centerY" id="v0Q-Xo-sFU"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7CZ-7b-wLQ" secondAttribute="trailing" id="XWn-e9-6Dh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7CZ-7b-wLQ" secondAttribute="bottom" id="dCo-za-C9B"/>
+                <constraint firstItem="7CZ-7b-wLQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dxk-u7-E3I"/>
+                <constraint firstItem="7CZ-7b-wLQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="plI-Wo-1ZQ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="154"/>
+        </view>
+    </objects>
+</document>

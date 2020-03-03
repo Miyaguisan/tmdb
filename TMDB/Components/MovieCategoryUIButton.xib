@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieCategoryUIButton" customModule="TMDB" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="image" keyPath="icon" value="globe"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Category Title"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="iconImageView" destination="aVz-ln-yvP" id="S8b-jR-qid"/>
+                <outlet property="titleLabel" destination="CX9-zM-0b1" id="pP6-JQ-ITJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="h2C-sh-emY">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8Q-pv-FeU">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aVz-ln-yvP">
+                                    <rect key="frame" x="10" y="10" width="20" height="20"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="O0f-I6-Ezm"/>
+                                <constraint firstAttribute="bottom" secondItem="aVz-ln-yvP" secondAttribute="bottom" constant="10" id="VwD-cK-0j2"/>
+                                <constraint firstItem="aVz-ln-yvP" firstAttribute="leading" secondItem="J8Q-pv-FeU" secondAttribute="leading" constant="10" id="XhF-Vg-TXF"/>
+                                <constraint firstItem="aVz-ln-yvP" firstAttribute="top" secondItem="J8Q-pv-FeU" secondAttribute="top" constant="10" id="bQr-Rb-67n"/>
+                                <constraint firstAttribute="trailing" secondItem="aVz-ln-yvP" secondAttribute="trailing" constant="10" id="hUV-z9-cfO"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX9-zM-0b1">
+                            <rect key="frame" x="40" y="11" width="260" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="h2C-sh-emY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="L3A-Pu-aog"/>
+                <constraint firstAttribute="bottom" secondItem="h2C-sh-emY" secondAttribute="bottom" id="YJo-1L-6cc"/>
+                <constraint firstItem="h2C-sh-emY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZKp-5r-2XI"/>
+                <constraint firstAttribute="trailing" secondItem="h2C-sh-emY" secondAttribute="trailing" id="hYF-B8-4DO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="globe" width="40" height="40"/>
+    </resources>
+</document>
