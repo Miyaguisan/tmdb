@@ -6,8 +6,14 @@ import UIKit
 
 class CircularLoadingIndicator: UIView {
     weak var circleLayer: CAShapeLayer? = nil
-    let indeterminateDuration: Double = 2.0
-    var desiredRadius: CGFloat = 0.25 {
+    let animationDuration: Double = 2.0
+    var color: UIColor = .link {
+        didSet {
+            update()
+        }
+    }
+    
+    var lineWidth: CGFloat = 2.0 {
         didSet {
             update()
         }
@@ -33,14 +39,13 @@ class CircularLoadingIndicator: UIView {
         update()
     }
     
-    func update(color: UIColor = .link) {
+    func update() {
         isHidden = true
         isOpaque = true
         destroyPath()
         
-        let offset: CGFloat = 0.0
-        let arcCenter = CGPoint(x: (bounds.width / 2.0), y: (bounds.height / 2.0) - offset)
-        let radius = (bounds.width * desiredRadius)
+        let arcCenter = CGPoint(x: (bounds.width / 2.0), y: (bounds.height / 2.0))
+        let radius = bounds.width / 2.0
         let startAngle = CGFloat(0.0)
         let endAngle = CGFloat(.pi * 2.0)
         
@@ -48,7 +53,7 @@ class CircularLoadingIndicator: UIView {
         casl.path = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true).cgPath
         casl.fillColor = UIColor.clear.cgColor
         casl.strokeColor = color.cgColor
-        casl.lineWidth = 2.0
+        casl.lineWidth = lineWidth
         casl.strokeEnd = 0.0
         layer.addSublayer(casl)
         
@@ -76,27 +81,27 @@ class CircularLoadingIndicator: UIView {
 extension CircularLoadingIndicator {
     fileprivate func generateAnimation() -> CAAnimationGroup {
         let headAnimation = CABasicAnimation(keyPath: "strokeStart")
-        headAnimation.beginTime = indeterminateDuration / 3
+        headAnimation.beginTime = animationDuration / 3
         headAnimation.fromValue = 0
         headAnimation.toValue = 1
-        headAnimation.duration = indeterminateDuration / 1.5
+        headAnimation.duration = animationDuration / 1.5
         headAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let tailAnimation = CABasicAnimation(keyPath: "strokeEnd")
         tailAnimation.fromValue = 0
         tailAnimation.toValue = 1
-        tailAnimation.duration = indeterminateDuration / 1.5
+        tailAnimation.duration = animationDuration / 1.5
         tailAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let fadeOut = CABasicAnimation(keyPath: "opacity")
-        fadeOut.beginTime = indeterminateDuration / 4
+        fadeOut.beginTime = animationDuration / 4
         fadeOut.fromValue = 1
         fadeOut.toValue = 0
-        fadeOut.duration = indeterminateDuration / 2.0
+        fadeOut.duration = animationDuration / 2.0
         fadeOut.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         
         let groupAnimation = CAAnimationGroup()
-        groupAnimation.duration = indeterminateDuration
+        groupAnimation.duration = animationDuration
         groupAnimation.repeatCount = Float.infinity
         groupAnimation.animations = [headAnimation, tailAnimation, fadeOut]
         return groupAnimation
@@ -106,7 +111,7 @@ extension CircularLoadingIndicator {
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         animation.fromValue = 0
         animation.toValue = (.pi * 3.5)
-        animation.duration = indeterminateDuration
+        animation.duration = animationDuration
         animation.repeatCount = Float.infinity
         return animation
     }

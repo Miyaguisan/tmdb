@@ -10,19 +10,20 @@ let MOVIE_PLACEHOLDER_ID = "placeholderCell"
 enum FilterType: String, CaseIterable {
     case name = "title.asc"
     case date = "release_date.desc"
-    case rating = "popularity.desc"
+    case rating = "vote_average.desc"
     case likes = "vote_count.desc"
 }
 
 class MovieList: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var filterSegment: UISegmentedControl!
-    @IBOutlet weak var networkErrorAlert: UIView!
+    @IBOutlet weak var collectionView: UICollectionView?
+    @IBOutlet weak var filterSegment: UISegmentedControl?
+    @IBOutlet weak var loadingView: UIView?
+    @IBOutlet weak var loadingIndicator: CircularLoadingIndicator?
     
-    private var networkError = false {
+    private var isLoading = false {
         didSet {
-            collectionView.isHidden = networkError
-            networkErrorAlert.isHidden = !networkError
+            loadingView?.setVisible(isLoading)
+            isLoading ? loadingIndicator?.animate() : loadingIndicator?.stop()
         }
     }
     
@@ -31,15 +32,23 @@ class MovieList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
+        self.title = "Movies"
+        loadingIndicator?.lineWidth = 4.0
+        loadingIndicator?.color = .white
+        collectionView?.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
         fetchNextMoviesPage()
+        
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
     }
     
     func fetchNextMoviesPage() {
-        let page = "page=\(currentPage)"
-        let filter = "sort_by=\(FilterType.allCases[filterSegment.selectedSegmentIndex].rawValue)"
+        let filter = FilterType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         
-        MovieRequestManager.shared.fetchMovies(with: "\(page)&\(filter)", then: updateCollection(_:))
+        let page = "&page=\(currentPage)"
+        let sort = "&sort_by=\(filter.rawValue)"
+        let voting = filter == .rating ? "&vote_count.gte=100" : ""
+        
+        MovieRequestManager.shared.fetchMovies(with: "\(page)\(sort)\(voting)", then: updateCollection(_:))
     }
     
     func updateCollection(_ success: Bool) {
@@ -48,7 +57,7 @@ class MovieList: UIViewController {
         }
         
         currentPage += 1
-        collectionView.reloadData()
+        collectionView?.reloadData()
     }
     
     @IBAction func selectFilter(control: UISegmentedControl) {
@@ -74,7 +83,7 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MOVIE_CELL_ID, for: indexPath) as! MovieCollectionViewCell
         cell.movie = MovieRequestManager.shared.movies[indexPath.item]
-        cell.showLikes = filterSegment.selectedSegmentIndex == 3
+        cell.infoType = MovieInfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         
         return cell
     }
@@ -83,5 +92,15 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         if indexPath.item == MovieRequestManager.shared.movies.count - 1 {
             fetchNextMoviesPage()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = MovieRequestManager.shared.movies[indexPath.item]
+        
+        let movieDetails = MovieDetails()
+        movieDetails.title = movie.title
+        movieDetails.movie = movie
+        
+        navigationController?.pushViewController(movieDetails, animated: true)
     }
 }

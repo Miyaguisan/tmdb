@@ -5,7 +5,13 @@
 import UIKit
 
 
-let NEW_RELEASE_MAX_DAYS = 40
+let NEW_RELEASE_MAX_DAYS = 7
+enum MovieInfoType: Int, CaseIterable {
+    case none = 0
+    case date
+    case rating
+    case likes
+}
 
 class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel?
@@ -13,16 +19,31 @@ class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var containerView: UIView?
     @IBOutlet private weak var isNewReleaseIndicator: UIImageView?
     @IBOutlet private weak var isLoadingIndicator: CircularLoadingIndicator?
-    @IBOutlet private weak var likesContainer: UIView?
-    @IBOutlet private weak var likesLabel: UILabel?
+    @IBOutlet private weak var badgeContainer: UIView?
+    @IBOutlet private weak var badgeCoutLabel: UILabel?
+    @IBOutlet private weak var badgeIconLabel: UILabel?
     
+    private let dateFormatter = DateFormatter()
     private let numberFormatter = NumberFormatter()
+    
+    private final let infoTypeColor = [
+        MovieInfoType.date: UIColor.systemGreen,
+        MovieInfoType.likes: UIColor.systemPink,
+        MovieInfoType.rating: UIColor.systemYellow
+    ]
+    private final let infoTypeFormat = [
+        MovieInfoType.likes: NumberFormatter.Style.decimal
+    ]
+    private final let infoTypeIcon = [
+        MovieInfoType.date: "",
+        MovieInfoType.likes: "",
+        MovieInfoType.rating: ""
+    ]
     
     var movie: Movie? {
         didSet {
             guard let movie = movie else { return }
             
-            likesLabel?.text = "\(numberFormatter.string(from: NSNumber(value:movie.vote_count)) ?? "") Likes"
             titleLabel?.text = movie.title
             isNewReleaseIndicator?.isHidden = daysSince(date: movie.release_date) > NEW_RELEASE_MAX_DAYS
             
@@ -44,20 +65,45 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var showLikes: Bool = false {
+    var infoType = MovieInfoType.none {
         didSet {
-            likesContainer?.isHidden = !showLikes
+            guard infoType != .none else {
+                badgeContainer?.isHidden = true
+                return
+            }
+            
+            badgeContainer?.isHidden = false
+            badgeContainer?.backgroundColor = infoTypeColor[infoType]
+            badgeIconLabel?.text = infoTypeIcon[infoType]
+            numberFormatter.numberStyle = infoTypeFormat[infoType] ?? .none
+            
+            switch infoType {
+            case .date:
+                let date = movie?.release_date ?? Date()
+                badgeCoutLabel?.text = dateFormatter.string(from: date).capitalized
+                break
+            case .likes:
+                let likes = movie?.vote_count ?? 0
+                badgeCoutLabel?.text = "\(numberFormatter.string(from: NSNumber(value:likes)) ?? "") Likes"
+                break
+            case .rating:
+                let rating = movie?.vote_average ?? 0.0 * 100.0
+                badgeCoutLabel?.text = "\(rating)"
+                break
+            default: break
+            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        numberFormatter.numberStyle = .decimal
         setupCell()
     }
     
     private func setupCell() {
         containerView?.addDropShadow()
+        dateFormatter.locale = Locale(identifier: "es-MX")
+        dateFormatter.dateFormat = "dd MMM yyyy"
     }
     
     private func updateImage(_ source: String, _ image: UIImage?) {

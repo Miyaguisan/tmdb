@@ -15,4 +15,24 @@ extension UIView {
         let shadowPath = UIBezierPath(rect: CGRect(x: 0.0, y: 0.0, width: bounds.width, height: bounds.height))
         layer.shadowPath = shadowPath.cgPath
     }
+    
+    func setVisible(_ visible: Bool, animated: Bool = true, duration: TimeInterval = 0.25, delay: TimeInterval = 0.0, onComplete: (() -> Void)? = nil) {
+        if visible == true {
+            alpha = 0.0
+            isHidden = false
+        }
+        
+        UIView.animate(withDuration: animated ? duration : 0.0,
+                       delay: delay,
+                       options: [.beginFromCurrentState],
+                       animations: {
+                        self.alpha = visible ? 1.0 : 0.0
+        }) { (finished) in
+            if visible == false {
+                self.isHidden = true
+            }
+            
+            onComplete?()
+        }
+    }
 }
