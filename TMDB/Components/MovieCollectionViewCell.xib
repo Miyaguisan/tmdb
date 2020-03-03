@@ -111,16 +111,16 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HV3-nV-3rp">
-                                <rect key="frame" x="27.5" y="166" width="120" height="30"/>
+                                <rect key="frame" x="65" y="170" width="45.5" height="26"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3M-qu-2Rd">
-                                        <rect key="frame" x="42.5" y="7" width="35.5" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3M-qu-2Rd">
+                                        <rect key="frame" x="10" y="5" width="25.5" height="16"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhE-5y-sIf">
-                                        <rect key="frame" x="52.5" y="-8" width="15" height="15"/>
+                                        <rect key="frame" x="15" y="-8" width="15" height="15"/>
                                         <fontDescription key="fontDescription" name="FontAwesome5Free-Solid" family="Font Awesome 5 Free" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -128,11 +128,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="G3M-qu-2Rd" secondAttribute="trailing" constant="10" id="CGU-Ia-1vF"/>
                                     <constraint firstItem="bhE-5y-sIf" firstAttribute="centerX" secondItem="HV3-nV-3rp" secondAttribute="centerX" id="CNJ-8j-Tbk"/>
-                                    <constraint firstAttribute="width" constant="120" id="LCK-UA-dgz"/>
+                                    <constraint firstItem="G3M-qu-2Rd" firstAttribute="leading" secondItem="HV3-nV-3rp" secondAttribute="leading" constant="10" id="PfP-os-WqS"/>
                                     <constraint firstItem="bhE-5y-sIf" firstAttribute="top" secondItem="HV3-nV-3rp" secondAttribute="top" constant="-8" id="W6V-aE-lr7"/>
-                                    <constraint firstItem="G3M-qu-2Rd" firstAttribute="centerX" secondItem="HV3-nV-3rp" secondAttribute="centerX" id="cak-fK-gCV"/>
-                                    <constraint firstAttribute="height" constant="30" id="f8E-nC-CGk"/>
+                                    <constraint firstAttribute="height" constant="26" id="f8E-nC-CGk"/>
                                     <constraint firstItem="G3M-qu-2Rd" firstAttribute="centerY" secondItem="HV3-nV-3rp" secondAttribute="centerY" id="ks5-DY-tNf"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -164,11 +164,12 @@
             </constraints>
             <size key="customSize" width="200" height="255"/>
             <connections>
+                <outlet property="badgeContainer" destination="HV3-nV-3rp" id="RdK-S8-Xw9"/>
+                <outlet property="badgeCoutLabel" destination="G3M-qu-2Rd" id="WKT-ia-EKZ"/>
+                <outlet property="badgeIconLabel" destination="bhE-5y-sIf" id="IyR-UD-6Ns"/>
                 <outlet property="containerView" destination="QfQ-WW-tm8" id="KJi-KP-ehm"/>
                 <outlet property="isLoadingIndicator" destination="uZs-Mb-IEp" id="Egi-QN-Oce"/>
                 <outlet property="isNewReleaseIndicator" destination="ajo-rF-6yZ" id="AJt-fb-q8y"/>
-                <outlet property="likesContainer" destination="HV3-nV-3rp" id="RdK-S8-Xw9"/>
-                <outlet property="likesLabel" destination="G3M-qu-2Rd" id="WKT-ia-EKZ"/>
                 <outlet property="thumbnailImageView" destination="S19-jk-vF3" id="gAu-Bf-rCk"/>
                 <outlet property="titleLabel" destination="frV-IE-Szk" id="xRP-Hs-Sfq"/>
             </connections>

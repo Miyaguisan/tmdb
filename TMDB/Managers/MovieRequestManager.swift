@@ -18,7 +18,7 @@ class MovieRequestManager: NSObject {
     private var fetchTask: URLSessionTask?
     private let jsonDecoder: JSONDecoder = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-DD"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .useDefaultKeys
@@ -34,7 +34,7 @@ class MovieRequestManager: NSObject {
     }
     
     func fetchMovies(with urlString: String, then onComplete: @escaping (Bool) -> ()) {
-        guard let url = URL(string: "\(TMDb_API_URL)&\(urlString)"), isBussy == false else { return }
+        guard let url = URL(string: "\(TMDb_API_URL)\(urlString)"), isBussy == false else { return }
         
         fetchTask?.cancel()
         fetchTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
