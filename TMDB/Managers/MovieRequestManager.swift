@@ -38,7 +38,7 @@ class MovieRequestManager: NSObject {
         
         fetchTask?.cancel()
         fetchTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            guard let data = data, let page = try? self.jsonDecoder.decode(Page.self, from: data), error == nil else {
+            guard let data = data, let page = try? self.jsonDecoder.decode(MoviePage.self, from: data), error == nil else {
                 self.performCallback(callBack: onComplete, success: false)
                 return
             }
