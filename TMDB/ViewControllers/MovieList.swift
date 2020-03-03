@@ -35,7 +35,7 @@ class MovieList: UIViewController {
         self.title = "Movies"
         loadingIndicator?.lineWidth = 4.0
         loadingIndicator?.color = .white
-        collectionView?.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
+        collectionView?.register(UINib(nibName: "EntertainmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
         fetchNextMoviesPage()
         
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -81,7 +81,7 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MOVIE_CELL_ID, for: indexPath) as! MovieCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MOVIE_CELL_ID, for: indexPath) as! EntertainmentCollectionViewCell
         cell.movie = MovieRequestManager.shared.movies[indexPath.item]
         cell.infoType = MovieInfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         
