@@ -14,7 +14,7 @@ extension UIView {
         let dynamicType = type(of: self)
         let bundle = Bundle(for: dynamicType)
         let name = forcedNibName ?? nibName()
-        let nib = UINib.init(nibName: name, bundle: bundle)
+        let nib = UINib(nibName: name, bundle: bundle)
         
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
             return UIView()

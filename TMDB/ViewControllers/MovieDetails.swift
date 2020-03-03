@@ -4,7 +4,7 @@
 
 import UIKit
 
-class MovieDetails: UIViewController {
+class MovieDetails: TMDBViewController {
     @IBOutlet private weak var thumbnailImage: UIImageView?
     @IBOutlet private weak var posterImage: UIImageView?
     

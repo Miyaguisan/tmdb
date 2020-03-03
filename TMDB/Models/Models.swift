@@ -16,7 +16,7 @@ struct Movie: Codable {
     public let vote_average: Double
 }
 
-struct Page: Codable {
+struct MoviePage: Codable {
     public let page: Int
     public let total_results: Int
     public let total_pages: Int

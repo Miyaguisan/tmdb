@@ -4,10 +4,10 @@
 
 import UIKit
 
-class MovieCategories: UIViewController {
-    @IBOutlet private weak var moviesCategoryButton: MovieCategoryUIButton?
+class Categories: TMDBViewController {
+    @IBOutlet private weak var moviesCategoryButton: CategoryButton?
     
-    var currentCategory: MovieCategoryUIButton? {
+    var currentCategory: CategoryButton? {
         willSet {
             currentCategory?.isSelected = false
         }
@@ -19,18 +19,18 @@ class MovieCategories: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Categories"
+        title = "Categories"
         currentCategory = moviesCategoryButton
     }
     
-    @IBAction func viewMovies(button: MovieCategoryUIButton) {
+    @IBAction func viewMovies(button: CategoryButton) {
         guard currentCategory != button else { return }
         
         currentCategory = button
         splitViewController?.showDetailViewController(UINavigationController(rootViewController: MovieList()), sender: nil)
     }
     
-    @IBAction func viewTVShows(button: MovieCategoryUIButton) {
+    @IBAction func viewTVShows(button: CategoryButton) {
         guard currentCategory != button else { return }
         
         currentCategory = button

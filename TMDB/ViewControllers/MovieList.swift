@@ -14,7 +14,7 @@ enum FilterType: String, CaseIterable {
     case likes = "vote_count.desc"
 }
 
-class MovieList: UIViewController {
+class MovieList: TMDBViewController {
     @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet weak var filterSegment: UISegmentedControl?
     @IBOutlet weak var loadingView: UIView?
@@ -32,10 +32,11 @@ class MovieList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Movies"
+        title = "Movies"
+        
         loadingIndicator?.lineWidth = 4.0
         loadingIndicator?.color = .white
-        collectionView?.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
+        collectionView?.register(UINib(nibName: "EntertainmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
         fetchNextMoviesPage()
         
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -81,7 +82,7 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MOVIE_CELL_ID, for: indexPath) as! MovieCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MOVIE_CELL_ID, for: indexPath) as! EntertainmentCollectionViewCell
         cell.movie = MovieRequestManager.shared.movies[indexPath.item]
         cell.infoType = MovieInfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         

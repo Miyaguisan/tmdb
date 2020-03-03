@@ -13,7 +13,7 @@ enum MovieInfoType: Int, CaseIterable {
     case likes
 }
 
-class MovieCollectionViewCell: UICollectionViewCell {
+class EntertainmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel?
     @IBOutlet private weak var thumbnailImageView: UIImageView?
     @IBOutlet private weak var containerView: UIView?

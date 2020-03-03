@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieCategories" customModule="TMDB" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Categories" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="moviesCategoryButton" destination="gGr-8X-DKl" id="34h-58-0VN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,7 +27,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lGg-Hy-Lrk">
                     <rect key="frame" x="20" y="101.33333333333331" width="374" height="88"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGr-8X-DKl" customClass="MovieCategoryUIButton" customModule="TMDB" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGr-8X-DKl" customClass="CategoryButton" customModule="TMDB" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
@@ -41,7 +41,7 @@
                                 <action selector="viewMoviesWithButton:" destination="-1" eventType="touchUpInside" id="HUE-VE-mqO"/>
                             </connections>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C64-Dh-QoS" customClass="MovieCategoryUIButton" customModule="TMDB" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C64-Dh-QoS" customClass="CategoryButton" customModule="TMDB" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="48.000000000000014" width="374" height="40"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <userDefinedRuntimeAttributes>
