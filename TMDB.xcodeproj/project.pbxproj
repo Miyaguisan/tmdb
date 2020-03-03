@@ -16,7 +16,7 @@
 		273E389A240DD6AE009E6833 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3898240DD6AE009E6833 /* Categories.swift */; };
 		273E389B240DD6AE009E6833 /* Categories.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273E3899240DD6AE009E6833 /* Categories.xib */; };
 		273E389E240DDF9E009E6833 /* DesignableUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E389D240DDF9E009E6833 /* DesignableUIButton.swift */; };
-		273E38A1240DE093009E6833 /* DesignableGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A0240DE093009E6833 /* DesignableGradient.swift */; };
+		273E38A1240DE093009E6833 /* VerticalGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A0240DE093009E6833 /* VerticalGradient.swift */; };
 		273E38A5240DE479009E6833 /* UIView+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A4240DE479009E6833 /* UIView+Effects.swift */; };
 		273E38A8240DE595009E6833 /* EntertainmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A6240DE595009E6833 /* EntertainmentCollectionViewCell.swift */; };
 		273E38A9240DE595009E6833 /* EntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273E38A7240DE595009E6833 /* EntertainmentCollectionViewCell.xib */; };
@@ -46,7 +46,7 @@
 		273E3898240DD6AE009E6833 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		273E3899240DD6AE009E6833 /* Categories.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Categories.xib; sourceTree = "<group>"; };
 		273E389D240DDF9E009E6833 /* DesignableUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIButton.swift; sourceTree = "<group>"; };
-		273E38A0240DE093009E6833 /* DesignableGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableGradient.swift; sourceTree = "<group>"; };
+		273E38A0240DE093009E6833 /* VerticalGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGradient.swift; sourceTree = "<group>"; };
 		273E38A4240DE479009E6833 /* UIView+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Effects.swift"; sourceTree = "<group>"; };
 		273E38A6240DE595009E6833 /* EntertainmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		273E38A7240DE595009E6833 /* EntertainmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntertainmentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -149,7 +149,6 @@
 		273E389C240DDF8A009E6833 /* Designables */ = {
 			isa = PBXGroup;
 			children = (
-				273E38A0240DE093009E6833 /* DesignableGradient.swift */,
 				273E389D240DDF9E009E6833 /* DesignableUIButton.swift */,
 			);
 			path = Designables;
@@ -159,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				273E38AB240DEB90009E6833 /* CircularLoadingIndicator.swift */,
+				273E38A0240DE093009E6833 /* VerticalGradient.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			files = (
 				273E38BA240E38F2009E6833 /* MovieRequestManager.swift in Sources */,
 				273E386E240DCC49009E6833 /* AppDelegate.swift in Sources */,
-				273E38A1240DE093009E6833 /* DesignableGradient.swift in Sources */,
+				273E38A1240DE093009E6833 /* VerticalGradient.swift in Sources */,
 				273E389E240DDF9E009E6833 /* DesignableUIButton.swift in Sources */,
 				273E38A5240DE479009E6833 /* UIView+Effects.swift in Sources */,
 				273E388A240DCE7D009E6833 /* CategoryButton.swift in Sources */,

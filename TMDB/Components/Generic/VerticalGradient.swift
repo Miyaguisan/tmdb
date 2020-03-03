@@ -7,17 +7,14 @@ import UIKit
 import QuartzCore
 
 
-@IBDesignable
-class DesignableGradient: UIView {
-    @IBInspectable
-    var outterColor: UIColor = .white {
+class VerticalGradient: UIView {
+    var colors:[UIColor] = [.white, .lightGray, .white] {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    @IBInspectable
-    var innerColor: UIColor = .lightGray {
+    var locations:[CGFloat] = [0.0, 0.5, 1.0] {
         didSet {
             setNeedsDisplay()
         }
@@ -26,9 +23,7 @@ class DesignableGradient: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        let colors = [outterColor.cgColor, innerColor.cgColor, outterColor.cgColor]
-        let locations:[CGFloat] = [0.0, 0.5, 1.0]
-        
+        guard colors.count == locations.count else { return }
         guard let context = UIGraphicsGetCurrentContext() else { return }
         guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: locations) else { return }
         
