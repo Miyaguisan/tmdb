@@ -5,7 +5,7 @@
 import UIKit
 
 
-class MovieCategoryUIButton: DesignableUIButton {
+class CategoryButton: DesignableUIButton {
     @IBInspectable
     var icon: UIImage? = nil {
         didSet {
