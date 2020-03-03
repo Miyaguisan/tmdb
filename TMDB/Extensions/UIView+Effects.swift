@@ -5,11 +5,14 @@
 import UIKit
 
 extension UIView {
-    func addDropShadow(opacity: Float = 0.2, radius: CGFloat = 5.0) {
+    func addDropShadow(opacity: Float = 0.25, radius: CGFloat = 5.0) {
         layer.masksToBounds = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = .zero
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
+        
+        let shadowPath = UIBezierPath(rect: CGRect(x: 0.0, y: 0.0, width: bounds.width, height: bounds.height))
+        layer.shadowPath = shadowPath.cgPath
     }
 }

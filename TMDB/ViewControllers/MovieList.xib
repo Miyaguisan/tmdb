@@ -46,7 +46,7 @@
                                 <constraint firstItem="jss-KG-ivx" firstAttribute="centerY" secondItem="GeZ-eO-Lfh" secondAttribute="centerY" id="cRn-1D-Brw"/>
                             </constraints>
                         </view>
-                        <collectionView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="51X-im-S7x">
+                        <collectionView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="51X-im-S7x">
                             <rect key="frame" x="0.0" y="50" width="414" height="768"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="dH4-f4-U4C">

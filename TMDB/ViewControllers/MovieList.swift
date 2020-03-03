@@ -73,9 +73,15 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MOVIE_CELL_ID, for: indexPath) as! MovieCollectionViewCell
-        cell.movie = MovieRequestManager.shared.movies[indexPath.row]
+        cell.movie = MovieRequestManager.shared.movies[indexPath.item]
         cell.showLikes = filterSegment.selectedSegmentIndex == 3
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == MovieRequestManager.shared.movies.count - 1 {
+            fetchNextMoviesPage()
+        }
     }
 }
