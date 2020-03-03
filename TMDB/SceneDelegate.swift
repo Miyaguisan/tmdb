@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         let svc = UISplitViewController()
-        svc.viewControllers = [UINavigationController(rootViewController: MovieCategories()), UINavigationController(rootViewController: MovieList())]
+        svc.viewControllers = [UINavigationController(rootViewController: Categories()), UINavigationController(rootViewController: MovieList())]
         svc.preferredDisplayMode = .allVisible
         window?.rootViewController = svc
     }

@@ -4,7 +4,7 @@
 
 import UIKit
 
-class MovieCategories: UIViewController {
+class Categories: UIViewController {
     @IBOutlet private weak var moviesCategoryButton: CategoryButton?
     
     var currentCategory: CategoryButton? {
