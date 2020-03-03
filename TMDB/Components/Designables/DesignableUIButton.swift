@@ -5,11 +5,13 @@
 import UIKit
 
 
+let DEFAULT_SELECTED_COLOR = UIColor(red: 235.0 / 255.0, green: 237.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
+
 @IBDesignable
 class DesignableUIButton: UIControl {
     @IBInspectable var backgroundColorDefault: UIColor = .systemBackground
-    @IBInspectable var backgroundColorHighlighted: UIColor = .systemGray
-    @IBInspectable var backgroundColorSelected: UIColor = .systemGray
+    @IBInspectable var backgroundColorHighlighted: UIColor = DEFAULT_SELECTED_COLOR
+    @IBInspectable var backgroundColorSelected: UIColor = DEFAULT_SELECTED_COLOR
     
     @IBOutlet weak var iconImageView: UIImageView?
     @IBOutlet weak var titleLabel: UILabel?
@@ -58,6 +60,7 @@ class DesignableUIButton: UIControl {
                            options: .beginFromCurrentState,
                            animations: {
                             self.backgroundColor = self.isSelected ? self.backgroundColorSelected : self.backgroundColorDefault
+                            self.titleLabel?.textColor = self.isSelected ? .black : .label
             }, completion: nil)
         }
     }

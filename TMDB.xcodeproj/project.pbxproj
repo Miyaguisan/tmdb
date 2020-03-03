@@ -31,6 +31,7 @@
 		27F14CF9240ECBE40098CEE5 /* MovieDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F14CF7240ECBE40098CEE5 /* MovieDetails.xib */; };
 		27F14CFC240ECD4A0098CEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F14CFA240ECD4A0098CEE5 /* Main.storyboard */; };
 		27F14CFE240EDD660098CEE5 /* CategoryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F14CFD240EDD660098CEE5 /* CategoryButton.xib */; };
+		27F14D00240EE2670098CEE5 /* TMDBSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F14CFF240EE2670098CEE5 /* TMDBSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		27F14CF7240ECBE40098CEE5 /* MovieDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetails.xib; sourceTree = "<group>"; };
 		27F14CFB240ECD4A0098CEE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27F14CFD240EDD660098CEE5 /* CategoryButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryButton.xib; sourceTree = "<group>"; };
+		27F14CFF240EE2670098CEE5 /* TMDBSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				27F14CF7240ECBE40098CEE5 /* MovieDetails.xib */,
 				273E38B5240E032F009E6833 /* MovieList.swift */,
 				273E38B6240E032F009E6833 /* MovieList.xib */,
+				27F14CFF240EE2670098CEE5 /* TMDBSplitViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				273E388D240DCF58009E6833 /* UIView+Designable.swift in Sources */,
 				27F14CF8240ECBE40098CEE5 /* MovieDetails.swift in Sources */,
 				273E38A8240DE595009E6833 /* EntertainmentCollectionViewCell.swift in Sources */,
+				27F14D00240EE2670098CEE5 /* TMDBSplitViewController.swift in Sources */,
 				273E3870240DCC49009E6833 /* SceneDelegate.swift in Sources */,
 				273E38B2240DF27F009E6833 /* Models.swift in Sources */,
 				273E38B7240E032F009E6833 /* MovieList.swift in Sources */,

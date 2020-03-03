@@ -29,10 +29,19 @@ class MovieList: UIViewController {
     
     private var currentPage = 1
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Movies"
+        title = "Movies"
+        navigationController?.navigationBar.barTintColor = UIColor(red: 39.0 / 255.0, green: 51.0 / 255.0, blue: 63.0 / 255.0, alpha: 1.0)
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.barStyle = .black
+        
         loadingIndicator?.lineWidth = 4.0
         loadingIndicator?.color = .white
         collectionView?.register(UINib(nibName: "EntertainmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
