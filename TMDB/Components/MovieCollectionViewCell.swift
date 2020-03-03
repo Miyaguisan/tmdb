@@ -57,7 +57,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        containerView?.addDropShadow(opacity: 0.25, radius: 5.0)
+        containerView?.addDropShadow()
     }
     
     private func updateImage(_ source: String, _ image: UIImage?) {

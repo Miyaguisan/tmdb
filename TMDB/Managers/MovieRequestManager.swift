@@ -51,6 +51,7 @@ class MovieRequestManager: NSObject {
     
     func performCallback(callBack: @escaping (Bool) -> (), success: Bool) {
         DispatchQueue.main.async {
+            self.fetchTask = nil
             self.isBussy = false
             callBack(success)
         }
