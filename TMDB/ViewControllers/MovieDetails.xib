@@ -23,16 +23,16 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="832"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukl-yL-sUO" userLabel="Content">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="332"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="532"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y91-Oo-FBN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW6-vy-PUz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="160" image="missing_cover" translatesAutoresizingMaskIntoConstraints="NO" id="YaF-9M-QHv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                             </subviews>
@@ -41,7 +41,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="YaF-9M-QHv" secondAttribute="trailing" id="3o1-cg-IAY"/>
                                                 <constraint firstItem="YaF-9M-QHv" firstAttribute="leading" secondItem="RW6-vy-PUz" secondAttribute="leading" id="LgU-mL-pIW"/>
                                                 <constraint firstAttribute="bottom" secondItem="YaF-9M-QHv" secondAttribute="bottom" id="UKc-Ul-MWP"/>
-                                                <constraint firstAttribute="height" constant="300" id="kOI-VL-9by"/>
+                                                <constraint firstAttribute="height" constant="500" id="nt7-dH-ffD"/>
                                             </constraints>
                                         </view>
                                     </subviews>

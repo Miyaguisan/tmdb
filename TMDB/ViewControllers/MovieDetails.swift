@@ -4,7 +4,7 @@
 
 import UIKit
 
-class MovieDetails: UIViewController {
+class MovieDetails: TMDBViewController {
     @IBOutlet private weak var thumbnailImage: UIImageView?
     @IBOutlet private weak var posterImage: UIImageView?
     
@@ -12,10 +12,6 @@ class MovieDetails: UIViewController {
     
     deinit {
         self.movie = nil
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     override func viewDidLoad() {
