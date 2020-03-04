@@ -13,7 +13,7 @@
                 <outlet property="languageLabel" destination="Tbs-kD-eOC" id="A3b-gV-IQN"/>
                 <outlet property="likesItem" destination="iMA-Jq-Gga" id="4j8-Fh-kQf"/>
                 <outlet property="overviewLabel" destination="ta8-XL-FAu" id="e0h-d3-em1"/>
-                <outlet property="posterImage" destination="YaF-9M-QHv" id="1Dp-s3-fc1"/>
+                <outlet property="posterImage" destination="HTx-45-chu" id="4ii-2m-5yQ"/>
                 <outlet property="ratingItem" destination="jXg-jz-9mA" id="JEy-mO-0Fn"/>
                 <outlet property="releaseDateItem" destination="Mqh-lM-GeY" id="aS2-hJ-QL4"/>
                 <outlet property="runtimeLabel" destination="hNc-ck-FEk" id="1fl-4g-AdN"/>
@@ -40,6 +40,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="160" image="missing_cover" translatesAutoresizingMaskIntoConstraints="NO" id="YaF-9M-QHv">
+                                                    <rect key="frame" x="0.0" y="-50" width="768" height="550"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="160" image="missing_cover" translatesAutoresizingMaskIntoConstraints="NO" id="HTx-45-chu">
                                                     <rect key="frame" x="0.0" y="-50" width="768" height="550"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
@@ -76,10 +80,13 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="YaF-9M-QHv" secondAttribute="trailing" id="3o1-cg-IAY"/>
                                                 <constraint firstAttribute="bottom" secondItem="cS9-Vg-ceL" secondAttribute="bottom" id="8Gw-aK-gja"/>
+                                                <constraint firstAttribute="trailing" secondItem="HTx-45-chu" secondAttribute="trailing" id="9yI-62-q59"/>
                                                 <constraint firstItem="cS9-Vg-ceL" firstAttribute="leading" secondItem="RW6-vy-PUz" secondAttribute="leading" id="EaG-QV-FuZ"/>
                                                 <constraint firstItem="YaF-9M-QHv" firstAttribute="leading" secondItem="RW6-vy-PUz" secondAttribute="leading" id="LgU-mL-pIW"/>
                                                 <constraint firstAttribute="bottom" secondItem="YaF-9M-QHv" secondAttribute="bottom" id="UKc-Ul-MWP"/>
+                                                <constraint firstItem="HTx-45-chu" firstAttribute="leading" secondItem="RW6-vy-PUz" secondAttribute="leading" id="fDO-Lr-lyd"/>
                                                 <constraint firstAttribute="height" constant="500" id="nt7-dH-ffD"/>
+                                                <constraint firstAttribute="bottom" secondItem="HTx-45-chu" secondAttribute="bottom" id="rUx-gO-k5K"/>
                                                 <constraint firstAttribute="trailing" secondItem="cS9-Vg-ceL" secondAttribute="trailing" id="yXs-o1-7uj"/>
                                             </constraints>
                                         </view>
@@ -195,6 +202,7 @@
                 <constraint firstAttribute="bottom" secondItem="k4V-6M-kGZ" secondAttribute="bottom" id="4Bv-Bn-ZNW"/>
                 <constraint firstAttribute="trailing" secondItem="k4V-6M-kGZ" secondAttribute="trailing" id="HKS-Bm-AlY"/>
                 <constraint firstItem="k4V-6M-kGZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="S4A-Wo-Q8M"/>
+                <constraint firstItem="HTx-45-chu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="999" id="WAH-Ew-fdF"/>
                 <constraint firstItem="YaF-9M-QHv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="999" id="Xoq-SH-YSt"/>
                 <constraint firstItem="k4V-6M-kGZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="yDA-T5-MWD"/>
             </constraints>

@@ -4,7 +4,7 @@
 
 import UIKit
 
-let STATIC_TMDB_URL = "https://image.tmdb.org/t/p/w200"
+let STATIC_TMDB_URL = "https://image.tmdb.org/t/p"
 
 class MoviePosterManager: NSObject {
     static let shared = MoviePosterManager()
@@ -17,8 +17,7 @@ class MoviePosterManager: NSObject {
     func getThumbnail(for urlString: String, then onComplete: @escaping (String, UIImage?) -> ()) {
         guard !images.keys.contains(urlString) else { return }
         
-        let finalURL = "\(STATIC_TMDB_URL)\(urlString)"
-        guard let url = URL(string: finalURL) else {
+        guard let url = URL(string: "\(STATIC_TMDB_URL)/w200\(urlString)") else {
             onComplete(urlString, nil)
             return
         }
@@ -40,5 +39,23 @@ class MoviePosterManager: NSObject {
         
         images[urlString] = task
         task.resume()
+    }
+    
+    func getPoster(for urlString: String, then onComplete: @escaping (UIImage) -> ()) -> URLSessionTask? {
+        guard let url = URL(string: "\(STATIC_TMDB_URL)/original\(urlString)") else { return nil }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data, error == nil else { return }
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    onComplete(image)
+                }
+            }
+        }
+        
+        task.resume()
+        
+        return task
     }
 }

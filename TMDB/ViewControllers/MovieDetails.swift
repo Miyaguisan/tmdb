@@ -19,20 +19,36 @@ class MovieDetails: TMDBViewController {
     
     var movie: Movie? = nil
     var updateRequest: URLSessionTask? = nil
+    var posterRequest: URLSessionTask? = nil
     
     deinit {
         self.movie = nil
         self.updateRequest = nil
+        self.posterRequest = nil
+        
         removeBlurFromNavBar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaultBGColor = view.backgroundColor ?? .white
+        gradientView?.colors = [defaultBGColor.withAlphaComponent(0.0), defaultBGColor]
+        gradientView?.locations = [0.0, 0.5]
+        
         addBlurToNavBar()
         updateMovieUI()
         
         if let movieID = movie?.id {
             updateRequest = MovieRequestManager.shared.fetchMovie(with: movieID, then: updateMovie(_:))
+        }
+        
+        if let posterURL = movie?.poster_path {
+            if let image = MoviePosterManager.shared.image(for: posterURL) {
+                thumbnailImage?.image = image
+            }
+            
+            posterRequest = MoviePosterManager.shared.getPoster(for: posterURL, then: updatePoster(_:))
         }
     }
     
@@ -55,6 +71,7 @@ class MovieDetails: TMDBViewController {
         
         if self.isMovingFromParent {
             updateRequest?.cancel()
+            posterRequest?.cancel()
         }
     }
     
@@ -80,19 +97,20 @@ class MovieDetails: TMDBViewController {
     
     private func updateMovie(_ movie: Movie) {
         self.movie = movie
-        
+        updateRequest = nil
         itemContainer?.updateChildrenLayout(animations: {
             self.updateMovieUI()
         })
     }
     
+    private func updatePoster(_ image: UIImage) {
+        posterImage?.image = image
+        posterImage?.setVisible(true)
+        posterRequest = nil
+    }
+    
     private func updateMovieUI() {
         guard let movie = movie else { return }
-        
-        let defaultBGColor = view.backgroundColor ?? .white
-        
-        gradientView?.colors = [defaultBGColor.withAlphaComponent(0.0), defaultBGColor]
-        gradientView?.locations = [0.0, 0.5]
         
         if let runtime = movie.runtime {
             runtimeLabel?.text = "\(runtime) minutes"
@@ -110,13 +128,5 @@ class MovieDetails: TMDBViewController {
         releaseDateItem?.text = dateFormatter.string(from: movie.release_date ?? Date())
         ratingItem?.text = movie.vote_average > 0.0 ? "\(movie.vote_average)" : "No rating yet"
         likesItem?.text = movie.vote_count > 0 ? "\(movie.vote_count) Likes" : "No likes yet"
-        
-        if let posterURL = movie.poster_path {
-            if let image = MoviePosterManager.shared.image(for: posterURL) {
-                thumbnailImage?.image = image
-            }
-            
-            // download full image
-        }
     }
 }
