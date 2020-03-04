@@ -102,8 +102,8 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         containerView?.addDropShadow()
-        dateFormatter.locale = Locale(identifier: "es-MX")
-        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.locale = Locale(identifier: "en-US")
+        dateFormatter.dateFormat = "MMM dd yyyy"
     }
     
     private func updateImage(_ source: String, _ image: UIImage?) {

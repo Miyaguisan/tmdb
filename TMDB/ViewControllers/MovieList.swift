@@ -99,7 +99,6 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let movie = MovieRequestManager.shared.movies[indexPath.item]
         
         let movieDetails = MovieDetails()
-//        movieDetails.title = movie.title
         movieDetails.movie = movie
         
         navigationController?.pushViewController(movieDetails, animated: true)

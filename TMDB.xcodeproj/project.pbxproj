@@ -32,6 +32,9 @@
 		27F14CFC240ECD4A0098CEE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F14CFA240ECD4A0098CEE5 /* Main.storyboard */; };
 		27F14CFE240EDD660098CEE5 /* CategoryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F14CFD240EDD660098CEE5 /* CategoryButton.xib */; };
 		27F14D02240EE8490098CEE5 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F14D01240EE8490098CEE5 /* TMDBViewController.swift */; };
+		27F14D04240EFA3D0098CEE5 /* EntertainmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F14D03240EFA3D0098CEE5 /* EntertainmentItem.swift */; };
+		27F14D06240EFA9D0098CEE5 /* EntertainmentItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F14D05240EFA9D0098CEE5 /* EntertainmentItem.xib */; };
+		27FF173E240F14B800A741C4 /* UIViewController+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF173D240F14B800A741C4 /* UIViewController+Effects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		27F14CFB240ECD4A0098CEE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27F14CFD240EDD660098CEE5 /* CategoryButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryButton.xib; sourceTree = "<group>"; };
 		27F14D01240EE8490098CEE5 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
+		27F14D03240EFA3D0098CEE5 /* EntertainmentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentItem.swift; sourceTree = "<group>"; };
+		27F14D05240EFA9D0098CEE5 /* EntertainmentItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntertainmentItem.xib; sourceTree = "<group>"; };
+		27FF173D240F14B800A741C4 /* UIViewController+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Effects.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,8 @@
 				27F14CFD240EDD660098CEE5 /* CategoryButton.xib */,
 				273E38A6240DE595009E6833 /* EntertainmentCollectionViewCell.swift */,
 				273E38A7240DE595009E6833 /* EntertainmentCollectionViewCell.xib */,
+				27F14D03240EFA3D0098CEE5 /* EntertainmentItem.swift */,
+				27F14D05240EFA9D0098CEE5 /* EntertainmentItem.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			children = (
 				273E388C240DCF58009E6833 /* UIView+Designable.swift */,
 				273E38A4240DE479009E6833 /* UIView+Effects.swift */,
+				27FF173D240F14B800A741C4 /* UIViewController+Effects.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,6 +260,7 @@
 				273E389B240DD6AE009E6833 /* Categories.xib in Resources */,
 				27F14CFE240EDD660098CEE5 /* CategoryButton.xib in Resources */,
 				27F14CF9240ECBE40098CEE5 /* MovieDetails.xib in Resources */,
+				27F14D06240EFA9D0098CEE5 /* EntertainmentItem.xib in Resources */,
 				273E3877240DCC4A009E6833 /* Assets.xcassets in Resources */,
 				27F14CFC240ECD4A0098CEE5 /* Main.storyboard in Resources */,
 				273E38A9240DE595009E6833 /* EntertainmentCollectionViewCell.xib in Resources */,
@@ -268,6 +278,7 @@
 				273E38BA240E38F2009E6833 /* MovieRequestManager.swift in Sources */,
 				273E386E240DCC49009E6833 /* AppDelegate.swift in Sources */,
 				273E38A1240DE093009E6833 /* VerticalGradient.swift in Sources */,
+				27FF173E240F14B800A741C4 /* UIViewController+Effects.swift in Sources */,
 				273E389E240DDF9E009E6833 /* DesignableUIButton.swift in Sources */,
 				273E38A5240DE479009E6833 /* UIView+Effects.swift in Sources */,
 				273E388A240DCE7D009E6833 /* CategoryButton.swift in Sources */,
@@ -281,6 +292,7 @@
 				273E389A240DD6AE009E6833 /* Categories.swift in Sources */,
 				273E38B4240DF2EF009E6833 /* MoviePosterManager.swift in Sources */,
 				27F14D02240EE8490098CEE5 /* TMDBViewController.swift in Sources */,
+				27F14D04240EFA3D0098CEE5 /* EntertainmentItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

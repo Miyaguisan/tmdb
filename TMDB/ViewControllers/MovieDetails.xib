@@ -9,7 +9,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetails" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="gradientView" destination="cS9-Vg-ceL" id="y7c-Hq-peb"/>
+                <outlet property="itemContainer" destination="JdW-UE-aQk" id="VGd-CS-W4l"/>
+                <outlet property="likesItem" destination="iMA-Jq-Gga" id="4j8-Fh-kQf"/>
+                <outlet property="overviewLabel" destination="ta8-XL-FAu" id="e0h-d3-em1"/>
                 <outlet property="posterImage" destination="YaF-9M-QHv" id="1Dp-s3-fc1"/>
+                <outlet property="ratingItem" destination="jXg-jz-9mA" id="JEy-mO-0Fn"/>
+                <outlet property="releaseDateItem" destination="Mqh-lM-GeY" id="aS2-hJ-QL4"/>
                 <outlet property="thumbnailImage" destination="YaF-9M-QHv" id="Uqf-Mu-S09"/>
                 <outlet property="titleLabel" destination="3yC-ab-6jQ" id="WIO-Y6-iEV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,10 +29,10 @@
                     <rect key="frame" x="0.0" y="50" width="768" height="974"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukl-yL-sUO" userLabel="Content">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="843"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y91-Oo-FBN">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="843"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW6-vy-PUz">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
@@ -39,14 +44,20 @@
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cS9-Vg-ceL" customClass="VerticalGradient" customModule="TMDB" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="416" width="768" height="84"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yC-ab-6jQ">
+                                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yC-ab-6jQ">
                                                             <rect key="frame" x="234" y="30" width="300" height="24"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="K2T-f4-yml"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,10 +81,79 @@
                                                 <constraint firstAttribute="trailing" secondItem="cS9-Vg-ceL" secondAttribute="trailing" id="yXs-o1-7uj"/>
                                             </constraints>
                                         </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ueE-N1-MYj">
+                                            <rect key="frame" x="0.0" y="500" width="768" height="343"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQn-e1-9Uq">
+                                                    <rect key="frame" x="30" y="40" width="708" height="40"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JdW-UE-aQk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="352.5" height="40"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-lM-GeY" customClass="EntertainmentItem" customModule="TMDB" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="3Pl-On-zuF"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="Release Date"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-jz-9mA" customClass="EntertainmentItem" customModule="TMDB" customModuleProvider="target">
+                                                                    <rect key="frame" x="146" y="0.0" width="86" height="40"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="ORw-TI-vO7"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="100%"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-Jq-Gga" customClass="EntertainmentItem" customModule="TMDB" customModuleProvider="target">
+                                                                    <rect key="frame" x="240" y="0.0" width="112.5" height="40"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="nDM-3Q-pp0"/>
+                                                                    </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="icon" value=""/>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="100 Likes"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="JdW-UE-aQk" secondAttribute="bottom" id="AkG-3O-Aih"/>
+                                                        <constraint firstItem="JdW-UE-aQk" firstAttribute="top" secondItem="TQn-e1-9Uq" secondAttribute="top" id="Qr5-aL-q6Y"/>
+                                                        <constraint firstItem="JdW-UE-aQk" firstAttribute="leading" secondItem="TQn-e1-9Uq" secondAttribute="leading" id="hhS-dJ-6qH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JdW-UE-aQk" secondAttribute="trailing" priority="750" id="m2d-WD-EdH"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Overview:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMY-wU-AdA">
+                                                    <rect key="frame" x="30" y="100" width="708" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta8-XL-FAu">
+                                                    <rect key="frame" x="30" y="140.5" width="708" height="162.5"/>
+                                                    <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl nulla, vestibulum ac iaculis laoreet, interdum eu felis. Integer finibus lectus nec dolor tempus convallis. Aenean egestas quam nulla, eu iaculis risus venenatis eget. Nam hendrerit lectus ipsum, at placerat arcu rhoncus id. Fusce eget consectetur lorem. Aenean pharetra tellus metus, non dignissim lorem blandit ut. Curabitur pharetra sem elit, eu convallis ligula vulputate tincidunt. Donec eget feugiat enim. Suspendisse nec tempus magna. Donec feugiat orci sed finibus porttitor. Etiam tellus ex, hendrerit ac vestibulum vitae, pretium id sapien. Etiam cursus nulla a tortor fringilla placerat. Mauris sollicitudin suscipit fermentum. </string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="40" left="30" bottom="40" right="30"/>
+                                        </stackView>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="Y91-Oo-FBN" secondAttribute="bottom" id="6by-pR-AU7"/>
                                 <constraint firstItem="Y91-Oo-FBN" firstAttribute="leading" secondItem="Ukl-yL-sUO" secondAttribute="leading" id="UUz-Q8-VLl"/>
