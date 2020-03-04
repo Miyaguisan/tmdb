@@ -20,6 +20,7 @@ class MovieList: TMDBViewController {
     @IBOutlet weak var loadingView: UIView?
     @IBOutlet weak var loadingIndicator: CircularLoadingIndicator?
     
+    private weak var searchBar: UISearchBar?
     private var isLoading = false {
         didSet {
             loadingView?.setVisible(isLoading)
@@ -32,24 +33,35 @@ class MovieList: TMDBViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        definesPresentationContext = true
         title = "Movies"
+        
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchControl))
         
         loadingIndicator?.lineWidth = 4.0
         loadingIndicator?.color = .white
         collectionView?.register(UINib(nibName: "EntertainmentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: MOVIE_CELL_ID)
         fetchNextMoviesPage()
-        
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+    }
+    
+    func reset() {
+        currentPage = 1
+        MovieRequestManager.shared.cancelCurrentFetch()
+        MovieRequestManager.shared.clearMovies()
+        fetchNextMoviesPage()
     }
     
     func fetchNextMoviesPage() {
         let filter = FilterType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         
+        let searchText = getSearchText()
         let page = "&page=\(currentPage)"
         let sort = "&sort_by=\(filter.rawValue)"
         let voting = filter == .rating ? "&vote_count.gte=100" : ""
+        let query = searchText.isEmpty ? "" : "&query=\(searchText)"
         
-        MovieRequestManager.shared.fetchMovies(with: "\(page)\(sort)\(voting)", then: updateCollection(_:))
+        MovieRequestManager.shared.fetchMovies(with: "\(page)\(sort)\(voting)\(query)", service: searchText.isEmpty ? "discover" : "search", then: updateCollection(_:))
     }
     
     func updateCollection(_ success: Bool) {
@@ -62,9 +74,38 @@ class MovieList: TMDBViewController {
     }
     
     @IBAction func selectFilter(control: UISegmentedControl) {
-        currentPage = 1
-        MovieRequestManager.shared.clearMovies()
-        fetchNextMoviesPage()
+        cancelSearch()
+        reset()
+    }
+    
+    @IBAction func showSearchControl() {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.enablesReturnKeyAutomatically = false
+        searchBar.placeholder = "Movie title"
+        searchBar.alpha = 0.0
+        navigationItem.titleView = searchBar
+        searchBar.sizeToFit()
+        self.searchBar = searchBar
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(cancelSearch))
+        navigationController?.navigationBar.updateChildrenLayout(animations: {
+            self.searchBar?.alpha = 1.0
+        }, then: {
+            searchBar.becomeFirstResponder()
+        })
+    }
+    
+    @objc private func cancelSearch() {
+        searchBar?.text = nil
+        searchBar?.resignFirstResponder()
+        navigationController?.navigationBar.updateChildrenLayout(animations: {
+            self.searchBar?.alpha = 0.0
+        }, then: {
+            self.navigationItem.titleView = nil
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.showSearchControl))
+            self.reset()
+        })
     }
 }
 
@@ -90,17 +131,37 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == MovieRequestManager.shared.movies.count - 1 {
-            fetchNextMoviesPage()
-        }
+        guard indexPath.item == MovieRequestManager.shared.movies.count - 1 else { return }
+        
+        fetchNextMoviesPage()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchBar?.resignFirstResponder()
+        
         let movie = MovieRequestManager.shared.movies[indexPath.item]
         
         let movieDetails = Detail()
         movieDetails.movie = movie
         
         navigationController?.pushViewController(movieDetails, animated: true)
+    }
+}
+
+extension MovieList: UISearchBarDelegate {
+    func getSearchText() -> String {
+        return searchBar?.text?.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        let searchText = getSearchText()
+        if searchText.isEmpty {
+            cancelSearch()
+            return
+        }
+        
+        reset()
     }
 }

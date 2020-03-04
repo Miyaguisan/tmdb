@@ -7,6 +7,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        print("NOTE\n\nTo Knotion Reviewer\n\nDue to an ongoing bug with themoviedb API regarding 'release_date' values as empty strings\ninstead of null ones. I have posted a bug report on their forums:\n\nhttps://www.themoviedb.org/talk/5e5f7258357c0000192f51c6\n\nItems with this error appear out of place when sorting them by date\nThis has forced me to manually manipulate de json string to replace such errors\nThe change can be found at MovieList.swift line 86\n\nTHANKS!")
+        
         return true
     }
     

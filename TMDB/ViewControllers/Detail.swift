@@ -125,7 +125,7 @@ class Detail: TMDBViewController {
         titleLabel?.text = movie.title
         overviewLabel?.text = movie.overview
         dateFormatter.dateFormat = "MMMM dd, yyyy"
-        releaseDateItem?.text = dateFormatter.string(from: movie.release_date ?? Date())
+        releaseDateItem?.text = movie.release_date == nil ? "No release date yet" : dateFormatter.string(from: movie.release_date ?? Date())
         ratingItem?.text = movie.vote_average > 0.0 ? "\(movie.vote_average)" : "No rating yet"
         likesItem?.text = movie.vote_count > 0 ? "\(movie.vote_count) Likes" : "No likes yet"
     }

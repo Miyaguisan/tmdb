@@ -12,7 +12,7 @@ class MovieRequestManager: NSObject {
     private var fetchTask: URLSessionTask?
     private let jsonDecoder: JSONDecoder = {
         let df = DateFormatter()
-        df.dateFormat = "yyyy-mm-dd"
+        df.dateFormat = "yyyy-MM-dd"
         
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .useDefaultKeys
@@ -27,27 +27,43 @@ class MovieRequestManager: NSObject {
         movies.removeAll()
     }
     
-    func fetchMovies(with urlString: String, then onComplete: @escaping (Bool) -> ()) {
-        guard let url = URL(string: "\(TMDb_API_URL)\(urlString)"), isBussy == false else { return }
+    func fetchMovies(with urlString: String, service: String = "discover", then onComplete: @escaping (Bool) -> ()) {
+        let finalURLString = "\(TMDb_API_URL)/\(service)/movie?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)&release_date.gte=\(TMDb_MIN_DATE)&release_date.lte=\(TMDb_MAX_DATE)\(urlString)"
+        
+        guard let url = URL(string: finalURLString), isBussy == false else { return }
         
         fetchTask?.cancel()
         fetchTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            guard let data = data, let page = try? self.jsonDecoder.decode(MoviePage.self, from: data), error == nil else {
+            guard error == nil, let data = MovieRequestManager.fixedJSON(from: data) else {
                 self.performCallback(callBack: onComplete, success: false)
                 return
             }
             
-            self.movies.append(contentsOf: page.results)
-            self.performCallback(callBack: onComplete, success: true)
+            do {
+                let page = try self.jsonDecoder.decode(MoviePage.self, from: data)
+                self.movies.append(contentsOf: page.results)
+                self.performCallback(callBack: onComplete, success: true)
+            } catch {
+                print(error)
+                self.performCallback(callBack: onComplete, success: false)
+            }
         })
         fetchTask?.resume()
     }
     
+    func cancelCurrentFetch() {
+        fetchTask?.cancel()
+        fetchTask = nil
+        isBussy = false
+    }
+    
     func fetchMovie(with movieID: Int, then onComplete: @escaping (Movie) -> ()) -> URLSessionTask? {
-        guard let url = URL(string: "\(TMDb_API_SINGLE_URL)\(movieID)?api_key=\(TMDb_API_KEY)&language=en-US") else { return nil }
+        let finalURLString = "\(TMDb_API_URL)/movie/\(movieID)?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)"
+        
+        guard let url = URL(string: finalURLString) else { return nil }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data, let movie = try? self.jsonDecoder.decode(Movie.self, from: data), error == nil else { return }
+            guard error == nil, let data = data, let movie = try? self.jsonDecoder.decode(Movie.self, from: data) else { return }
             
             DispatchQueue.main.async {
                 onComplete(movie)
@@ -60,10 +76,16 @@ class MovieRequestManager: NSObject {
     }
     
     private func performCallback(callBack: @escaping (Bool) -> (), success: Bool) {
-        DispatchQueue.main.async {
-            self.fetchTask = nil
-            self.isBussy = false
+        DispatchQueue.main.async { [weak self] in
+            self?.fetchTask = nil
+            self?.isBussy = false
             callBack(success)
         }
+    }
+    
+    class func fixedJSON(from source: Data?) -> Data? {
+        guard let data = source else { return nil }
+        
+        return String(data: data, encoding: .utf8)?.replacingOccurrences(of: "\"release_date\":\"\"", with: "\"release_date\":null").data(using: .utf8)
     }
 }
