@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Detail" customModule="TMDB" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Detail" customModule="Miyagui_TMDb" customModuleProvider="target">
             <connections>
                 <outlet property="creatorLabel" destination="2ya-te-s0r" id="fwo-AZ-D6V"/>
                 <outlet property="episodesLabel" destination="9Nd-SY-RhF" id="TEF-6q-Rp9"/>
@@ -52,7 +52,7 @@
                                                     <rect key="frame" x="0.0" y="-50" width="768" height="550"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
-                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cS9-Vg-ceL" customClass="VerticalGradient" customModule="TMDB" customModuleProvider="target">
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cS9-Vg-ceL" customClass="Gradient" customModule="Miyagui_TMDb" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="400" width="768" height="100"/>
                                                     <subviews>
                                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yC-ab-6jQ">
@@ -104,7 +104,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JdW-UE-aQk">
                                                             <rect key="frame" x="0.0" y="0.0" width="352.5" height="40"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-lM-GeY" customClass="EntertainmentItem" customModule="TMDB" customModuleProvider="target">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-lM-GeY" customClass="EntertainmentItem" customModule="Miyagui_TMDb" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                     <constraints>
@@ -115,7 +115,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="Release Date"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-jz-9mA" customClass="EntertainmentItem" customModule="TMDB" customModuleProvider="target">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXg-jz-9mA" customClass="EntertainmentItem" customModule="Miyagui_TMDb" customModuleProvider="target">
                                                                     <rect key="frame" x="146" y="0.0" width="86" height="40"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                     <constraints>
@@ -126,7 +126,7 @@
                                                                         <userDefinedRuntimeAttribute type="string" keyPath="text" value="100%"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-Jq-Gga" customClass="EntertainmentItem" customModule="TMDB" customModuleProvider="target">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-Jq-Gga" customClass="EntertainmentItem" customModule="Miyagui_TMDb" customModuleProvider="target">
                                                                     <rect key="frame" x="240" y="0.0" width="112.5" height="40"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                     <constraints>

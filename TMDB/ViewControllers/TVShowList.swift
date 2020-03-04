@@ -54,6 +54,8 @@ extension TVShowList: SearchViewControllerDelegate {
     }
     
     func cell(for indexPath: IndexPath) -> UICollectionViewCell? {
+        guard !requestManager.shows.isEmpty else { return nil }
+        
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as? EntertainmentCollectionViewCell
         cell?.show = requestManager.shows[indexPath.item]
         cell?.infoType = InfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]

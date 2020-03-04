@@ -36,6 +36,8 @@ class SearchViewController: BaseViewController {
         definesPresentationContext = true
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchControl))
+        
+        collectionView?.register(UINib(nibName: "PlaceholderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: PLACEHOLDER_ID)
     }
     
     func reset() {
@@ -101,20 +103,33 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.delegate?.contentArray().count ?? 0
+        if let totalItems = self.delegate?.contentArray().count, totalItems > 0 {
+            return totalItems
+        }
+        
+        return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return delegate?.cell(for: indexPath) ?? UICollectionViewCell()
+        if let cell = delegate?.cell(for: indexPath) {
+            return cell
+        }
+        
+        let placeholderCell = collectionView.dequeueReusableCell(withReuseIdentifier: PLACEHOLDER_ID, for: indexPath) as! PlaceholderCollectionViewCell
+        placeholderCell.index = indexPath.item
+        
+        return placeholderCell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let totalItems = self.delegate?.contentArray().count, indexPath.item == (totalItems - 1) else { return }
+        guard let totalItems = self.delegate?.contentArray().count, totalItems > 0, indexPath.item == (totalItems - 1) else { return }
         
         fetchNextContentPage()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let totalItems = self.delegate?.contentArray().count, totalItems > 0 else { return }
+        
         searchBar?.resignFirstResponder()
         delegate?.didSelectItem(at: indexPath)
     }
