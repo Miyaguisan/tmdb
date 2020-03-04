@@ -98,7 +98,7 @@ extension MovieList: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = MovieRequestManager.shared.movies[indexPath.item]
         
-        let movieDetails = MovieDetails()
+        let movieDetails = Detail()
         movieDetails.movie = movie
         
         navigationController?.pushViewController(movieDetails, animated: true)

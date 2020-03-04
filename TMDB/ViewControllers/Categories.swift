@@ -34,6 +34,6 @@ class Categories: TMDBViewController {
         guard currentCategory != button else { return }
         
         currentCategory = button
-        splitViewController?.showDetailViewController(UINavigationController(rootViewController: MovieDetails()), sender: nil)
+        splitViewController?.showDetailViewController(UINavigationController(rootViewController: Detail()), sender: nil)
     }
 }
