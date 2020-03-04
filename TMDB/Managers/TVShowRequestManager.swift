@@ -64,25 +64,24 @@ class TVShowRequestManager {
 
 extension TVShowRequestManager {
     class func fetchShow(with showID: Int, then onComplete: @escaping (TVShow) -> Void?) -> URLSessionTask? {
-        return nil
+        let finalURLString = "\(TMDb_API_URL)/tv/\(showID)?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)"
+        guard let url = URL(string: finalURLString) else { return nil }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil, let data = fixedJSON(from: data, parameter: "first_air_date") else { return }
+            
+            do {
+                let show = try jsonDecoder.decode(TVShow.self, from: data)
+                DispatchQueue.main.async {
+                    onComplete(show)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+        task.resume()
+        
+        return task
     }
 }
-//    func fetchMovie(with movieID: Int, then onComplete: @escaping (Movie) -> ()) -> URLSessionTask? {
-//        let finalURLString = "\(TMDb_API_URL)/movie/\(movieID)?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)"
-//        
-//        guard let url = URL(string: finalURLString) else { return nil }
-//        
-//        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            guard error == nil, let data = data, let movie = try? self.jsonDecoder.decode(Movie.self, from: data) else { return }
-//            
-//            DispatchQueue.main.async {
-//                onComplete(movie)
-//            }
-//        }
-//        
-//        task.resume()
-//        
-//        return task
-//    }
-//
-//}

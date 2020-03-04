@@ -11,6 +11,7 @@ let PLACEHOLDER_ID = "placeholderCell"
 protocol SearchViewControllerDelegate {
     func contentArray() -> Array<Any>
     func cell(for indexPath: IndexPath) -> UICollectionViewCell?
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 class SearchViewController: BaseViewController {
@@ -108,14 +109,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        searchBar?.resignFirstResponder()
-//
-//        let movie = MovieRequestManager.shared.movies[indexPath.item]
-//
-//        let movieDetails = Detail()
-//        movieDetails.movie = movie
-//
-//        navigationController?.pushViewController(movieDetails, animated: true)
+        searchBar?.resignFirstResponder()
+        delegate?.didSelectItem(at: indexPath)
     }
 }
 

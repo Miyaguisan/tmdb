@@ -17,12 +17,13 @@ struct TVShowCreator: Codable {
 }
 
 struct TVShow: Codable {
-    public let created_by: TVShowCreator?
+    public let created_by: [TVShowCreator]?
     public let first_air_date: Date?
     public let homepage: String?
     public let id: Int
     public let networks: [TVShowNetwork]?
     public let number_of_episodes: Int?
+    public let number_of_seasons: Int?
     public let original_language: String?
     public let original_name: String
     public let overview: String

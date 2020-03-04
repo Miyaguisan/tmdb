@@ -59,4 +59,11 @@ extension TVShowList: SearchViewControllerDelegate {
         
         return cell
     }
+    
+    func didSelectItem(at indexPath: IndexPath) {
+        let details = Detail()
+        details.show = requestManager.shows[indexPath.item]
+        
+        navigationController?.pushViewController(details, animated: true)
+    }
 }

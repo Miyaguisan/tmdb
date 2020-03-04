@@ -59,4 +59,11 @@ extension MovieList: SearchViewControllerDelegate {
 
         return cell
     }
+    
+    func didSelectItem(at indexPath: IndexPath) {
+        let details = Detail()
+        details.movie = requestManager.movies[indexPath.item]
+        
+        navigationController?.pushViewController(details, animated: true)
+    }
 }

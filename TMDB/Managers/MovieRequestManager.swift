@@ -65,14 +65,18 @@ class MovieRequestManager {
 extension MovieRequestManager {
     class func fetchMovie(with movieID: Int, then onComplete: @escaping (Movie) -> Void?) -> URLSessionTask? {
         let finalURLString = "\(TMDb_API_URL)/movie/\(movieID)?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)"
-        
         guard let url = URL(string: finalURLString) else { return nil }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil, let data = data, let movie = try? jsonDecoder.decode(Movie.self, from: data) else { return }
+            guard error == nil, let data = fixedJSON(from: data, parameter: "release_date") else { return }
             
-            DispatchQueue.main.async {
-                onComplete(movie)
+            do {
+                let movie = try jsonDecoder.decode(Movie.self, from: data)
+                DispatchQueue.main.async {
+                    onComplete(movie)
+                }
+            } catch {
+                print(error)
             }
         }
         
