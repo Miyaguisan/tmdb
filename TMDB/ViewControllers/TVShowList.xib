@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TVShowList" customModule="TMDB" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="RBZ-eJ-xiH" id="ABK-BY-Xw1"/>
+                <outlet property="filterSegment" destination="qCj-j1-Reg" id="Z5R-c2-DcN"/>
+                <outlet property="loadingIndicator" destination="4l9-vy-hb9" id="2tv-bf-BPx"/>
+                <outlet property="view" destination="sWC-dn-Vsw" id="0AK-Rb-SjZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="sWC-dn-Vsw">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TZU-42-CJk">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bB-0n-RiN">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qCj-j1-Reg">
+                                    <rect key="frame" x="89.5" y="9.5" width="235" height="32"/>
+                                    <segments>
+                                        <segment title="Name"/>
+                                        <segment title="Date"/>
+                                        <segment title="Rating"/>
+                                        <segment title="Likes"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="selectFilterWithControl:" destination="-1" eventType="valueChanged" id="OM2-Mi-RWT"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="qCj-j1-Reg" firstAttribute="centerX" secondItem="8bB-0n-RiN" secondAttribute="centerX" id="02V-P9-fO9"/>
+                                <constraint firstAttribute="height" constant="50" id="AFM-dv-r3F"/>
+                                <constraint firstItem="qCj-j1-Reg" firstAttribute="centerY" secondItem="8bB-0n-RiN" secondAttribute="centerY" id="cdK-pR-Neh"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RBZ-eJ-xiH">
+                            <rect key="frame" x="0.0" y="50" width="414" height="768"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pRJ-t8-eRl">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="KaP-Vb-s6h"/>
+                                <outlet property="delegate" destination="-1" id="6Nq-S3-dTe"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4l9-vy-hb9" customClass="CircularLoadingIndicator" customModule="TMDB" customModuleProvider="target">
+                    <rect key="frame" x="182" y="428" width="50" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Bp5-Fa-W7i"/>
+                        <constraint firstAttribute="width" constant="50" id="uQm-Qg-XMm"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zvs-Mf-hzS" firstAttribute="trailing" secondItem="TZU-42-CJk" secondAttribute="trailing" id="7Jm-05-faS"/>
+                <constraint firstItem="TZU-42-CJk" firstAttribute="leading" secondItem="zvs-Mf-hzS" secondAttribute="leading" id="DRi-WS-Ahu"/>
+                <constraint firstItem="TZU-42-CJk" firstAttribute="top" secondItem="zvs-Mf-hzS" secondAttribute="top" id="Q8q-d2-Aoi"/>
+                <constraint firstItem="4l9-vy-hb9" firstAttribute="centerX" secondItem="TZU-42-CJk" secondAttribute="centerX" id="Uds-Tt-ATv"/>
+                <constraint firstItem="4l9-vy-hb9" firstAttribute="centerY" secondItem="TZU-42-CJk" secondAttribute="centerY" id="lK4-1m-t9z"/>
+                <constraint firstItem="zvs-Mf-hzS" firstAttribute="bottom" secondItem="TZU-42-CJk" secondAttribute="bottom" id="qYq-TX-j1E"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="zvs-Mf-hzS"/>
+            <point key="canvasLocation" x="139" y="154"/>
+        </view>
+    </objects>
+</document>

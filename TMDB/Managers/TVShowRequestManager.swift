@@ -5,23 +5,23 @@
 import UIKit
 
 
-class MovieRequestManager {
+class TVShowRequestManager {
     private var isBussy = false
     private var fetchTask: URLSessionTask?
     
-    var movies: [Movie]
+    var shows: [TVShow]
     
     deinit {
         cancelCurrentFetch()
-        clearMovies()
+        clearShows()
     }
     
     init() {
-        self.movies = []
+        self.shows = []
     }
     
-    func clearMovies() {
-        movies.removeAll()
+    func clearShows() {
+        shows.removeAll()
     }
     
     func cancelCurrentFetch() {
@@ -30,20 +30,20 @@ class MovieRequestManager {
         isBussy = false
     }
     
-    func fetchMovies(with parameters: String, service: String = "discover", then onComplete: @escaping (Bool) -> Void?) {
-        let finalURLString = "\(TMDb_API_URL)/\(service)/movie?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)&release_date.gte=\(TMDb_MIN_DATE)&release_date.lte=\(TMDb_MAX_DATE)\(parameters)"
+    func fetchShows(with parameters: String, service: String = "discover", then onComplete: @escaping (Bool) -> Void?) {
+        let finalURLString = "\(TMDb_API_URL)/\(service)/tv?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)&include_null_first_air_dates=false&first_air_date.gte=\(TMDb_MIN_DATE)&first_air_date.lte=\(TMDb_MAX_DATE)\(parameters)"
         guard let url = URL(string: finalURLString), isBussy == false else { return }
         
         fetchTask?.cancel()
         fetchTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            guard error == nil, let data = fixedJSON(from: data, parameter: "release_date") else {
+            guard error == nil, let data = fixedJSON(from: data, parameter: "first_air_date") else {
                 self.performCallback(callBack: onComplete, success: false)
                 return
             }
             
             do {
-                let page = try jsonDecoder.decode(MoviePage.self, from: data)
-                self.movies.append(contentsOf: page.results)
+                let page = try jsonDecoder.decode(TVShowPage.self, from: data)
+                self.shows.append(contentsOf: page.results)
                 self.performCallback(callBack: onComplete, success: true)
             } catch {
                 print(error)
@@ -62,18 +62,18 @@ class MovieRequestManager {
     }
 }
 
-extension MovieRequestManager {
-    class func fetchMovie(with movieID: Int, then onComplete: @escaping (Movie) -> Void?) -> URLSessionTask? {
-        let finalURLString = "\(TMDb_API_URL)/movie/\(movieID)?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)"
+extension TVShowRequestManager {
+    class func fetchShow(with showID: Int, then onComplete: @escaping (TVShow) -> Void?) -> URLSessionTask? {
+        let finalURLString = "\(TMDb_API_URL)/tv/\(showID)?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)"
         guard let url = URL(string: finalURLString) else { return nil }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil, let data = fixedJSON(from: data, parameter: "release_date") else { return }
+            guard error == nil, let data = fixedJSON(from: data, parameter: "first_air_date") else { return }
             
             do {
-                let movie = try jsonDecoder.decode(Movie.self, from: data)
+                let show = try jsonDecoder.decode(TVShow.self, from: data)
                 DispatchQueue.main.async {
-                    onComplete(movie)
+                    onComplete(show)
                 }
             } catch {
                 print(error)

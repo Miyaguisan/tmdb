@@ -11,8 +11,7 @@
             <connections>
                 <outlet property="collectionView" destination="51X-im-S7x" id="tMa-PN-cOL"/>
                 <outlet property="filterSegment" destination="jss-KG-ivx" id="Ni5-9t-Z02"/>
-                <outlet property="loadingIndicator" destination="ZWF-WV-dLG" id="dCn-rt-824"/>
-                <outlet property="loadingView" destination="gxR-oe-FEs" id="mUa-qN-4rS"/>
+                <outlet property="loadingIndicator" destination="qPs-yN-WUh" id="PAz-gr-yvU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -63,71 +62,21 @@
                         </collectionView>
                     </subviews>
                 </stackView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxR-oe-FEs">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
-                    <subviews>
-                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ywa-TW-yCi">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="to9-YH-G9S">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="768"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </view>
-                            <blurEffect style="light"/>
-                        </visualEffectView>
-                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whe-jY-SG6">
-                            <rect key="frame" x="147" y="324" width="120" height="120"/>
-                            <subviews>
-                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNh-TV-9Ga">
-                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aB0-q0-fjb">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </view>
-                                    <blurEffect style="dark"/>
-                                </visualEffectView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWF-WV-dLG" customClass="CircularLoadingIndicator" customModule="TMDB" customModuleProvider="target">
-                                    <rect key="frame" x="35" y="35" width="50" height="50"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="hsd-6d-66w"/>
-                                        <constraint firstAttribute="width" constant="50" id="x2c-Zq-qcc"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="yNh-TV-9Ga" firstAttribute="leading" secondItem="whe-jY-SG6" secondAttribute="leading" id="EDu-6n-nEW"/>
-                                <constraint firstAttribute="height" constant="120" id="Hee-J2-kdB"/>
-                                <constraint firstAttribute="bottom" secondItem="yNh-TV-9Ga" secondAttribute="bottom" id="LtE-O8-ecA"/>
-                                <constraint firstItem="ZWF-WV-dLG" firstAttribute="centerX" secondItem="whe-jY-SG6" secondAttribute="centerX" id="Mhb-Cn-j8c"/>
-                                <constraint firstAttribute="width" constant="120" id="RrV-fA-jYV"/>
-                                <constraint firstItem="ZWF-WV-dLG" firstAttribute="centerY" secondItem="whe-jY-SG6" secondAttribute="centerY" id="TyQ-BJ-7DJ"/>
-                                <constraint firstItem="yNh-TV-9Ga" firstAttribute="top" secondItem="whe-jY-SG6" secondAttribute="top" id="go2-aV-cCH"/>
-                                <constraint firstAttribute="trailing" secondItem="yNh-TV-9Ga" secondAttribute="trailing" id="r9J-C4-FrV"/>
-                            </constraints>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="8"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                    </subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPs-yN-WUh" customClass="CircularLoadingIndicator" customModule="TMDB" customModuleProvider="target">
+                    <rect key="frame" x="182" y="428" width="50" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="whe-jY-SG6" firstAttribute="centerY" secondItem="gxR-oe-FEs" secondAttribute="centerY" id="UJN-a2-qPo"/>
-                        <constraint firstItem="whe-jY-SG6" firstAttribute="centerX" secondItem="gxR-oe-FEs" secondAttribute="centerX" id="zeD-3x-a7x"/>
+                        <constraint firstAttribute="width" constant="50" id="59R-Ep-acY"/>
+                        <constraint firstAttribute="height" constant="50" id="aV2-ve-7fI"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gxR-oe-FEs" secondAttribute="bottom" id="Hj3-EE-Nom"/>
-                <constraint firstItem="gxR-oe-FEs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KUb-rl-GpR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gxR-oe-FEs" secondAttribute="trailing" id="Vie-bo-U6I"/>
+                <constraint firstItem="qPs-yN-WUh" firstAttribute="centerX" secondItem="7CZ-7b-wLQ" secondAttribute="centerX" id="1Tc-Cw-fBh"/>
+                <constraint firstItem="qPs-yN-WUh" firstAttribute="centerY" secondItem="7CZ-7b-wLQ" secondAttribute="centerY" id="WJx-J5-L6g"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7CZ-7b-wLQ" secondAttribute="trailing" id="XWn-e9-6Dh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7CZ-7b-wLQ" secondAttribute="bottom" id="dCo-za-C9B"/>
-                <constraint firstItem="gxR-oe-FEs" firstAttribute="top" secondItem="GeZ-eO-Lfh" secondAttribute="bottom" id="dhM-Tu-lhe"/>
                 <constraint firstItem="7CZ-7b-wLQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dxk-u7-E3I"/>
                 <constraint firstItem="7CZ-7b-wLQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="plI-Wo-1ZQ"/>
             </constraints>
