@@ -23,9 +23,6 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var badgeCoutLabel: UILabel?
     @IBOutlet private weak var badgeIconLabel: UILabel?
     
-    private let dateFormatter = DateFormatter()
-    private let numberFormatter = NumberFormatter()
-    
     private final let infoTypeColor = [
         MovieInfoType.date: UIColor.systemGreen,
         MovieInfoType.likes: UIColor.systemPink,
@@ -102,8 +99,6 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         containerView?.addDropShadow()
-        dateFormatter.locale = Locale(identifier: "en-US")
-        dateFormatter.dateFormat = "MMM dd yyyy"
     }
     
     private func updateImage(_ source: String, _ image: UIImage?) {

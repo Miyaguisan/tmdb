@@ -35,4 +35,20 @@ extension UIView {
             onComplete?()
         }
     }
+    
+    func updateChildrenLayout(animationDuration: TimeInterval = 0.25, animations: (() -> Void)? = nil) {
+        setNeedsLayout()
+        setNeedsUpdateConstraints()
+        updateConstraints()
+        layoutIfNeeded()
+        
+        UIView.animate(withDuration: animationDuration,
+                       delay: 0.0,
+                       options: [.beginFromCurrentState, .curveEaseInOut],
+                       animations: {
+                        animations?()
+                        self.setNeedsLayout()
+                        self.layoutIfNeeded()
+        }, completion: nil)
+    }
 }

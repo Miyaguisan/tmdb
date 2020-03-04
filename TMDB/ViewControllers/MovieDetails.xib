@@ -10,11 +10,13 @@
             <connections>
                 <outlet property="gradientView" destination="cS9-Vg-ceL" id="y7c-Hq-peb"/>
                 <outlet property="itemContainer" destination="JdW-UE-aQk" id="VGd-CS-W4l"/>
+                <outlet property="languageLabel" destination="Tbs-kD-eOC" id="A3b-gV-IQN"/>
                 <outlet property="likesItem" destination="iMA-Jq-Gga" id="4j8-Fh-kQf"/>
                 <outlet property="overviewLabel" destination="ta8-XL-FAu" id="e0h-d3-em1"/>
                 <outlet property="posterImage" destination="YaF-9M-QHv" id="1Dp-s3-fc1"/>
                 <outlet property="ratingItem" destination="jXg-jz-9mA" id="JEy-mO-0Fn"/>
                 <outlet property="releaseDateItem" destination="Mqh-lM-GeY" id="aS2-hJ-QL4"/>
+                <outlet property="runtimeLabel" destination="hNc-ck-FEk" id="1fl-4g-AdN"/>
                 <outlet property="thumbnailImage" destination="YaF-9M-QHv" id="Uqf-Mu-S09"/>
                 <outlet property="titleLabel" destination="3yC-ab-6jQ" id="WIO-Y6-iEV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,10 +31,10 @@
                     <rect key="frame" x="0.0" y="50" width="768" height="974"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukl-yL-sUO" userLabel="Content">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="843"/>
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="863"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y91-Oo-FBN">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="843"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="863"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW6-vy-PUz">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="500"/>
@@ -82,7 +84,7 @@
                                             </constraints>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ueE-N1-MYj">
-                                            <rect key="frame" x="0.0" y="500" width="768" height="343"/>
+                                            <rect key="frame" x="0.0" y="500" width="768" height="363"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TQn-e1-9Uq">
                                                     <rect key="frame" x="30" y="40" width="708" height="40"/>
@@ -134,14 +136,31 @@
                                                         <constraint firstAttribute="trailing" secondItem="JdW-UE-aQk" secondAttribute="trailing" priority="750" id="m2d-WD-EdH"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Overview:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMY-wU-AdA">
-                                                    <rect key="frame" x="30" y="100" width="708" height="20.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="guE-g1-d8C">
+                                                    <rect key="frame" x="30" y="100" width="708" height="0.0"/>
+                                                    <subviews>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Runtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNc-ck-FEk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbs-kD-eOC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Synopsis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMY-wU-AdA">
+                                                    <rect key="frame" x="30" y="120" width="708" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta8-XL-FAu">
-                                                    <rect key="frame" x="30" y="140.5" width="708" height="162.5"/>
+                                                    <rect key="frame" x="30" y="160.5" width="708" height="162.5"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nisl nulla, vestibulum ac iaculis laoreet, interdum eu felis. Integer finibus lectus nec dolor tempus convallis. Aenean egestas quam nulla, eu iaculis risus venenatis eget. Nam hendrerit lectus ipsum, at placerat arcu rhoncus id. Fusce eget consectetur lorem. Aenean pharetra tellus metus, non dignissim lorem blandit ut. Curabitur pharetra sem elit, eu convallis ligula vulputate tincidunt. Donec eget feugiat enim. Suspendisse nec tempus magna. Donec feugiat orci sed finibus porttitor. Etiam tellus ex, hendrerit ac vestibulum vitae, pretium id sapien. Etiam cursus nulla a tortor fringilla placerat. Mauris sollicitudin suscipit fermentum. </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

@@ -35,6 +35,7 @@
 		27F14D04240EFA3D0098CEE5 /* EntertainmentItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F14D03240EFA3D0098CEE5 /* EntertainmentItem.swift */; };
 		27F14D06240EFA9D0098CEE5 /* EntertainmentItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F14D05240EFA9D0098CEE5 /* EntertainmentItem.xib */; };
 		27FF173E240F14B800A741C4 /* UIViewController+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF173D240F14B800A741C4 /* UIViewController+Effects.swift */; };
+		27FF1740240F3AE600A741C4 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF173F240F3AE600A741C4 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		27F14D03240EFA3D0098CEE5 /* EntertainmentItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentItem.swift; sourceTree = "<group>"; };
 		27F14D05240EFA9D0098CEE5 /* EntertainmentItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntertainmentItem.xib; sourceTree = "<group>"; };
 		27FF173D240F14B800A741C4 /* UIViewController+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Effects.swift"; sourceTree = "<group>"; };
+		27FF173F240F3AE600A741C4 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				273E38B3240DF2EF009E6833 /* MoviePosterManager.swift */,
 				273E38B9240E38F2009E6833 /* MovieRequestManager.swift */,
+				27FF173F240F3AE600A741C4 /* Global.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				273E386E240DCC49009E6833 /* AppDelegate.swift in Sources */,
 				273E38A1240DE093009E6833 /* VerticalGradient.swift in Sources */,
 				27FF173E240F14B800A741C4 /* UIViewController+Effects.swift in Sources */,
+				27FF1740240F3AE600A741C4 /* Global.swift in Sources */,
 				273E389E240DDF9E009E6833 /* DesignableUIButton.swift in Sources */,
 				273E38A5240DE479009E6833 /* UIView+Effects.swift in Sources */,
 				273E388A240DCE7D009E6833 /* CategoryButton.swift in Sources */,
