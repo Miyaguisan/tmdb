@@ -4,7 +4,7 @@
 
 import UIKit
 
-class Categories: TMDBViewController {
+class Categories: BaseViewController {
     @IBOutlet private weak var moviesCategoryButton: CategoryButton?
     
     var currentCategory: CategoryButton? {
@@ -34,6 +34,6 @@ class Categories: TMDBViewController {
         guard currentCategory != button else { return }
         
         currentCategory = button
-        splitViewController?.showDetailViewController(UINavigationController(rootViewController: Detail()), sender: nil)
+        splitViewController?.showDetailViewController(UINavigationController(rootViewController: TVShowList()), sender: nil)
     }
 }

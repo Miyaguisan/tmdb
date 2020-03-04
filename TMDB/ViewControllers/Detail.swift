@@ -4,7 +4,7 @@
 
 import UIKit
 
-class Detail: TMDBViewController {
+class Detail: BaseViewController {
     @IBOutlet private weak var thumbnailImage: UIImageView?
     @IBOutlet private weak var posterImage: UIImageView?
     @IBOutlet private weak var gradientView: VerticalGradient?
@@ -40,15 +40,15 @@ class Detail: TMDBViewController {
         updateMovieUI()
         
         if let movieID = movie?.id {
-            updateRequest = MovieRequestManager.shared.fetchMovie(with: movieID, then: updateMovie(_:))
+            updateRequest = MovieRequestManager.fetchMovie(with: movieID, then: updateMovie(_:))
         }
         
         if let posterURL = movie?.poster_path {
-            if let image = MoviePosterManager.shared.image(for: posterURL) {
+            if let image = PosterManager.shared.image(for: posterURL) {
                 thumbnailImage?.image = image
             }
             
-            posterRequest = MoviePosterManager.shared.getPoster(for: posterURL, then: updatePoster(_:))
+            posterRequest = PosterManager.shared.getPoster(for: posterURL, then: updatePoster(_:))
         }
     }
     

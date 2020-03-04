@@ -4,7 +4,7 @@
 
 import UIKit
 
-class TMDBViewController: UIViewController {
+class BaseViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

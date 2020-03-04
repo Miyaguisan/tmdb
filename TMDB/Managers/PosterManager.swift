@@ -4,10 +4,9 @@
 
 import UIKit
 
-let STATIC_TMDB_URL = "https://image.tmdb.org/t/p"
 
-class MoviePosterManager: NSObject {
-    static let shared = MoviePosterManager()
+class PosterManager {
+    static let shared = PosterManager()
     var images = [String:Any]()
     
     func image(for urlString: String) -> UIImage? {
