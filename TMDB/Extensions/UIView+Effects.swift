@@ -16,7 +16,7 @@ extension UIView {
         layer.shadowPath = shadowPath.cgPath
     }
     
-    func setVisible(_ visible: Bool, animated: Bool = true, duration: TimeInterval = 0.25, delay: TimeInterval = 0.0, onComplete: (() -> Void)? = nil) {
+    func setVisible(_ visible: Bool, animated: Bool = true, duration: TimeInterval = ANIMATION_ENTER_DURATION, delay: TimeInterval = 0.0, onComplete: (() -> Void)? = nil) {
         if visible == true {
             alpha = 0.0
             isHidden = false
@@ -36,7 +36,7 @@ extension UIView {
         }
     }
     
-    func updateChildrenLayout(animationDuration: TimeInterval = 0.25, animations: (() -> Void)? = nil, then onComplete: (() -> Void)? = nil) {
+    func updateChildrenLayout(animationDuration: TimeInterval = ANIMATION_ENTER_DURATION, animations: (() -> Void)? = nil, then onComplete: (() -> Void)? = nil) {
         setNeedsLayout()
         setNeedsUpdateConstraints()
         updateConstraints()
