@@ -8,13 +8,13 @@ import QuartzCore
 
 
 class VerticalGradient: UIView {
-    var colors:[UIColor] = [.white, .lightGray, .white] {
+    var colors: [UIColor] = [.clear, .white, .black] {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    var locations:[CGFloat] = [0.0, 0.5, 1.0] {
+    var locations: [CGFloat] = [0.0, 0.5, 1.0] {
         didSet {
             setNeedsDisplay()
         }
@@ -25,11 +25,17 @@ class VerticalGradient: UIView {
         
         guard colors.count == locations.count else { return }
         guard let context = UIGraphicsGetCurrentContext() else { return }
-        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: locations) else { return }
+        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: getCGColors(), locations: locations) else { return }
         
-        let startPoint = CGPoint.zero
-        let endPoint = CGPoint(x: self.bounds.width, y: self.bounds.height)
+        context.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0.0, y: bounds.height), options: CGGradientDrawingOptions(rawValue: 0))
+    }
+    
+    fileprivate func getCGColors() -> CFArray {
+        var cgColors:[CGColor] = []
+        for color in colors {
+            cgColors.append(color.cgColor)
+        }
         
-        context.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: 0))
+        return cgColors as CFArray
     }
 }

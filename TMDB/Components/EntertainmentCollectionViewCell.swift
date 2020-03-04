@@ -23,9 +23,6 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var badgeCoutLabel: UILabel?
     @IBOutlet private weak var badgeIconLabel: UILabel?
     
-    private let dateFormatter = DateFormatter()
-    private let numberFormatter = NumberFormatter()
-    
     private final let infoTypeColor = [
         MovieInfoType.date: UIColor.systemGreen,
         MovieInfoType.likes: UIColor.systemPink,
@@ -56,7 +53,7 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
                 else {
                     isLoadingIndicator?.animate()
                     thumbnailImageView?.isHidden = true
-                    MoviePosterManager.shared.downloadImage(for: posterURL, then: updateImage(_:_:))
+                    MoviePosterManager.shared.getThumbnail(for: posterURL, then: updateImage(_:_:))
                 }
             }
             else {
@@ -102,8 +99,6 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         containerView?.addDropShadow()
-        dateFormatter.locale = Locale(identifier: "es-MX")
-        dateFormatter.dateFormat = "dd MMM yyyy"
     }
     
     private func updateImage(_ source: String, _ image: UIImage?) {

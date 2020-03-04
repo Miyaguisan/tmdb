@@ -5,24 +5,18 @@
 import UIKit
 
 
-let TMDb_MIN_DATE = "1970-01-01"
-let TMDb_MAX_DATE = "2020-03-01"
-let TMDb_API_KEY = "676518c5210af2425acc7d75c112e99c"
-let TMDb_LANG = "en-US"
-let TMDb_API_URL = "https://api.themoviedb.org/3/discover/movie?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)&release_date.gte=\(TMDb_MIN_DATE)&release_date.lte=\(TMDb_MAX_DATE)"
-
 class MovieRequestManager: NSObject {
     static let shared = MovieRequestManager()
     
     private var isBussy = false
     private var fetchTask: URLSessionTask?
     private let jsonDecoder: JSONDecoder = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-mm-dd"
         
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .useDefaultKeys
-        jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
+        jsonDecoder.dateDecodingStrategy = .formatted(df)
         
         return jsonDecoder
     }()
@@ -49,7 +43,23 @@ class MovieRequestManager: NSObject {
         fetchTask?.resume()
     }
     
-    func performCallback(callBack: @escaping (Bool) -> (), success: Bool) {
+    func fetchMovie(with movieID: Int, then onComplete: @escaping (Movie) -> ()) -> URLSessionTask? {
+        guard let url = URL(string: "\(TMDb_API_SINGLE_URL)\(movieID)?api_key=\(TMDb_API_KEY)&language=en-US") else { return nil }
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data, let movie = try? self.jsonDecoder.decode(Movie.self, from: data), error == nil else { return }
+            
+            DispatchQueue.main.async {
+                onComplete(movie)
+            }
+        }
+        
+        task.resume()
+        
+        return task
+    }
+    
+    private func performCallback(callBack: @escaping (Bool) -> (), success: Bool) {
         DispatchQueue.main.async {
             self.fetchTask = nil
             self.isBussy = false
