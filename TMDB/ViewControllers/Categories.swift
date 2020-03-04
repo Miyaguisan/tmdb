@@ -4,6 +4,7 @@
 
 import UIKit
 
+
 class Categories: BaseViewController {
     @IBOutlet private weak var moviesCategoryButton: CategoryButton?
     

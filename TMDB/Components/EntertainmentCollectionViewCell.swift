@@ -120,33 +120,31 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     }
     
     private func setImage(from url: String?) {
-        if let url = url {
-            if let image = PosterManager.shared.image(for: url) {
-                thumbnailImageView?.image = image
-                thumbnailImageView?.isHidden = false
-                isLoadingIndicator?.stop()
-            }
-            else {
-                isLoadingIndicator?.animate()
-                thumbnailImageView?.isHidden = true
-                PosterManager.shared.getThumbnail(for: url, then: updateImage(_:_:))
-            }
+        guard let url = url else {
+            updateImage("", nil)
+            return
+        }
+        
+        if let image = PosterManager.shared.image(for: url) {
+            thumbnailImageView?.image = image
+            thumbnailImageView?.isHidden = false
+            isLoadingIndicator?.stop()
         }
         else {
-            updateImage("", nil)
+            isLoadingIndicator?.animate()
+            thumbnailImageView?.isHidden = true
+            PosterManager.shared.getThumbnail(for: url, then: updateImage(_:_:))
         }
     }
     
     private func updateImage(_ source: String, _ image: UIImage?) {
+        thumbnailImageView?.image = UIImage(named: "missing_cover")
         thumbnailImageView?.isHidden = false
         isLoadingIndicator?.stop()
         
-        if let image = image, source == movie?.poster_path || source == show?.poster_path {
-            thumbnailImageView?.image = image
-        }
-        else {
-            thumbnailImageView?.image = UIImage(named: "missing_cover")
-        }
+        guard let image = image, source == movie?.poster_path || source == show?.poster_path else { return }
+        
+        thumbnailImageView?.image = image
     }
     
     private func daysSince(date: Date?) -> Int {

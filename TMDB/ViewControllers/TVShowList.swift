@@ -4,6 +4,7 @@
 
 import UIKit
 
+
 enum TVShowFilterType: String, CaseIterable {
     case name = "name.asc"
     case date = "first_air_date.desc"

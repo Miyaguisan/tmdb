@@ -10,7 +10,6 @@ class EntertainmentItem: UIView {
     @IBOutlet private weak var iconLabel: UILabel?
     @IBOutlet private weak var textLabel: UILabel?
     
-    
     @IBInspectable
     var iconColor: UIColor? {
         didSet {
@@ -45,7 +44,6 @@ class EntertainmentItem: UIView {
     fileprivate func setupView() {
         loadXIB()
         
-//        clipsToBounds = true
         layer.cornerRadius = 8.0
         layer.borderColor = UIColor.label.cgColor
         layer.borderWidth = 1.0
