@@ -4,6 +4,7 @@
 
 import UIKit
 
+
 enum MovieFilterType: String, CaseIterable {
     case name = "title.asc"
     case date = "release_date.desc"

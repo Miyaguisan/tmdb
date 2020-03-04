@@ -4,6 +4,7 @@
 
 import UIKit
 
+
 extension UIViewController {
     func addBlurToNavBar() {
         guard let navigationController = navigationController else { return }

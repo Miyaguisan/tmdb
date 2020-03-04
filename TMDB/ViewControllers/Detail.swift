@@ -4,6 +4,7 @@
 
 import UIKit
 
+
 class Detail: BaseViewController {
     @IBOutlet private weak var thumbnailImage: UIImageView?
     @IBOutlet private weak var posterImage: UIImageView?
