@@ -44,7 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		273E386A240DCC49009E6833 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		273E386A240DCC49009E6833 /* Miyagui TMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Miyagui TMDb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		273E386D240DCC49009E6833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		273E386F240DCC49009E6833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		273E3876240DCC4A009E6833 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		273E386B240DCC49009E6833 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				273E386A240DCC49009E6833 /* TMDB.app */,
+				273E386A240DCC49009E6833 /* Miyagui TMDb.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 			);
 			name = TMDB;
 			productName = TMDB;
-			productReference = 273E386A240DCC49009E6833 /* TMDB.app */;
+			productReference = 273E386A240DCC49009E6833 /* Miyagui TMDb.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -476,7 +476,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.miyagui.TMDB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Miyagui TMDb";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -494,7 +494,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.miyagui.TMDB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Miyagui TMDb";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
