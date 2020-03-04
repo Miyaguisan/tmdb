@@ -8,7 +8,7 @@ import UIKit
 class Detail: BaseViewController {
     @IBOutlet private weak var thumbnailImage: UIImageView?
     @IBOutlet private weak var posterImage: UIImageView?
-    @IBOutlet private weak var gradientView: VerticalGradient?
+    @IBOutlet private weak var gradientView: Gradient?
     @IBOutlet private weak var titleLabel: UILabel?
     
     @IBOutlet private weak var itemContainer: UIStackView?

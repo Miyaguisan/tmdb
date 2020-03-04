@@ -7,7 +7,17 @@ import UIKit
 import QuartzCore
 
 
-class VerticalGradient: UIView {
+enum GradientOrientation {
+    case horizontal, vertical
+}
+
+class Gradient: UIView {
+    var direction: GradientOrientation = .vertical {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     var colors: [UIColor] = [.clear, .white, .black] {
         didSet {
             setNeedsDisplay()
@@ -27,7 +37,7 @@ class VerticalGradient: UIView {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: getCGColors(), locations: locations) else { return }
         
-        context.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0.0, y: bounds.height), options: CGGradientDrawingOptions(rawValue: 0))
+        context.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: direction == .vertical ? 0.0 : bounds.width, y: direction == .horizontal ? 0.0 : bounds.height), options: CGGradientDrawingOptions(rawValue: 0))
     }
     
     fileprivate func getCGColors() -> CFArray {

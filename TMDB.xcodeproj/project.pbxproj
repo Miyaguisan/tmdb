@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27268B852410524700EE9B2C /* PlaceholderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27268B832410524700EE9B2C /* PlaceholderCollectionViewCell.swift */; };
+		27268B862410524700EE9B2C /* PlaceholderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27268B842410524700EE9B2C /* PlaceholderCollectionViewCell.xib */; };
+		27268B882410563700EE9B2C /* AnimatedPlaceholderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27268B872410563700EE9B2C /* AnimatedPlaceholderBackgroundView.swift */; };
 		273E386E240DCC49009E6833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E386D240DCC49009E6833 /* AppDelegate.swift */; };
 		273E3870240DCC49009E6833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E386F240DCC49009E6833 /* SceneDelegate.swift */; };
 		273E3877240DCC4A009E6833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 273E3876240DCC4A009E6833 /* Assets.xcassets */; };
@@ -16,7 +19,7 @@
 		273E389A240DD6AE009E6833 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E3898240DD6AE009E6833 /* Categories.swift */; };
 		273E389B240DD6AE009E6833 /* Categories.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273E3899240DD6AE009E6833 /* Categories.xib */; };
 		273E389E240DDF9E009E6833 /* DesignableUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E389D240DDF9E009E6833 /* DesignableUIButton.swift */; };
-		273E38A1240DE093009E6833 /* VerticalGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A0240DE093009E6833 /* VerticalGradient.swift */; };
+		273E38A1240DE093009E6833 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A0240DE093009E6833 /* Gradient.swift */; };
 		273E38A5240DE479009E6833 /* UIView+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A4240DE479009E6833 /* UIView+Effects.swift */; };
 		273E38A8240DE595009E6833 /* EntertainmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273E38A6240DE595009E6833 /* EntertainmentCollectionViewCell.swift */; };
 		273E38A9240DE595009E6833 /* EntertainmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273E38A7240DE595009E6833 /* EntertainmentCollectionViewCell.xib */; };
@@ -44,6 +47,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27268B832410524700EE9B2C /* PlaceholderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderCollectionViewCell.swift; sourceTree = "<group>"; };
+		27268B842410524700EE9B2C /* PlaceholderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceholderCollectionViewCell.xib; sourceTree = "<group>"; };
+		27268B872410563700EE9B2C /* AnimatedPlaceholderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPlaceholderBackgroundView.swift; sourceTree = "<group>"; };
 		273E386A240DCC49009E6833 /* Miyagui TMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Miyagui TMDb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		273E386D240DCC49009E6833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		273E386F240DCC49009E6833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,7 +61,7 @@
 		273E3898240DD6AE009E6833 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		273E3899240DD6AE009E6833 /* Categories.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Categories.xib; sourceTree = "<group>"; };
 		273E389D240DDF9E009E6833 /* DesignableUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableUIButton.swift; sourceTree = "<group>"; };
-		273E38A0240DE093009E6833 /* VerticalGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalGradient.swift; sourceTree = "<group>"; };
+		273E38A0240DE093009E6833 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		273E38A4240DE479009E6833 /* UIView+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Effects.swift"; sourceTree = "<group>"; };
 		273E38A6240DE595009E6833 /* EntertainmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntertainmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		273E38A7240DE595009E6833 /* EntertainmentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntertainmentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 				273E38A7240DE595009E6833 /* EntertainmentCollectionViewCell.xib */,
 				27F14D03240EFA3D0098CEE5 /* EntertainmentItem.swift */,
 				27F14D05240EFA9D0098CEE5 /* EntertainmentItem.xib */,
+				27268B832410524700EE9B2C /* PlaceholderCollectionViewCell.swift */,
+				27268B842410524700EE9B2C /* PlaceholderCollectionViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -180,8 +188,9 @@
 		273E38AA240DEB77009E6833 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				27268B872410563700EE9B2C /* AnimatedPlaceholderBackgroundView.swift */,
 				273E38AB240DEB90009E6833 /* CircularLoadingIndicator.swift */,
-				273E38A0240DE093009E6833 /* VerticalGradient.swift */,
+				273E38A0240DE093009E6833 /* Gradient.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 				273E387A240DCC4A009E6833 /* LaunchScreen.storyboard in Resources */,
 				273E389B240DD6AE009E6833 /* Categories.xib in Resources */,
 				27FF1746240FC0B400A741C4 /* TVShowList.xib in Resources */,
+				27268B862410524700EE9B2C /* PlaceholderCollectionViewCell.xib in Resources */,
 				27F14CFE240EDD660098CEE5 /* CategoryButton.xib in Resources */,
 				27F14CF9240ECBE40098CEE5 /* Detail.xib in Resources */,
 				27F14D06240EFA9D0098CEE5 /* EntertainmentItem.xib in Resources */,
@@ -304,17 +314,19 @@
 			files = (
 				273E38BA240E38F2009E6833 /* MovieRequestManager.swift in Sources */,
 				273E386E240DCC49009E6833 /* AppDelegate.swift in Sources */,
-				273E38A1240DE093009E6833 /* VerticalGradient.swift in Sources */,
+				273E38A1240DE093009E6833 /* Gradient.swift in Sources */,
 				27FF1745240FC0B400A741C4 /* TVShowList.swift in Sources */,
 				27FF173E240F14B800A741C4 /* UIViewController+Effects.swift in Sources */,
 				27FF1742240FBC0D00A741C4 /* TVShowModels.swift in Sources */,
 				27C3D595241016A5002C4A62 /* TVShowRequestManager.swift in Sources */,
 				27FF1740240F3AE600A741C4 /* Global.swift in Sources */,
+				27268B852410524700EE9B2C /* PlaceholderCollectionViewCell.swift in Sources */,
 				273E389E240DDF9E009E6833 /* DesignableUIButton.swift in Sources */,
 				273E38A5240DE479009E6833 /* UIView+Effects.swift in Sources */,
 				273E388A240DCE7D009E6833 /* CategoryButton.swift in Sources */,
 				273E38AC240DEB90009E6833 /* CircularLoadingIndicator.swift in Sources */,
 				273E388D240DCF58009E6833 /* UIView+Designable.swift in Sources */,
+				27268B882410563700EE9B2C /* AnimatedPlaceholderBackgroundView.swift in Sources */,
 				27F14CF8240ECBE40098CEE5 /* Detail.swift in Sources */,
 				273E38A8240DE595009E6833 /* EntertainmentCollectionViewCell.swift in Sources */,
 				273E3870240DCC49009E6833 /* SceneDelegate.swift in Sources */,

@@ -112,10 +112,6 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupCell()
-    }
-    
-    private func setupCell() {
         containerView?.addDropShadow()
     }
     

@@ -54,6 +54,8 @@ extension MovieList: SearchViewControllerDelegate {
     }
     
     func cell(for indexPath: IndexPath) -> UICollectionViewCell? {
+        guard !requestManager.movies.isEmpty else { return nil }
+        
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as? EntertainmentCollectionViewCell
         cell?.movie = requestManager.movies[indexPath.item]
         cell?.infoType = InfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]

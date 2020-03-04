@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Nm4-ua-szR" customClass="PlaceholderCollectionViewCell" customModule="Miyagui_TMDb" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="175" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="175" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qv1-1z-FR0">
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="250"/>
+                        <subviews>
+                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlY-UJ-GF8">
+                                <rect key="frame" x="10" y="10" width="155" height="230"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdG-Xa-nQe" customClass="AnimatedPlaceholderBackgroundView" customModule="Miyagui_TMDb" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="230"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UHy-XV-v3z">
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="230"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooi-M6-ksG">
+                                                <rect key="frame" x="0.0" y="0.0" width="155" height="10"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRI-6F-aMa">
+                                                <rect key="frame" x="0.0" y="10" width="10" height="210"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25L-Sp-dYh">
+                                                <rect key="frame" x="145" y="10" width="10" height="210"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-Ib-5Fp">
+                                                <rect key="frame" x="10" y="170" width="135" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-Mt-bXF">
+                                                <rect key="frame" x="0.0" y="220" width="155" height="10"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mdG-Xa-nQe" firstAttribute="leading" secondItem="mlY-UJ-GF8" secondAttribute="leading" id="MPU-5V-vJv"/>
+                                    <constraint firstAttribute="bottom" secondItem="mdG-Xa-nQe" secondAttribute="bottom" id="k0e-iN-uFu"/>
+                                    <constraint firstItem="mdG-Xa-nQe" firstAttribute="top" secondItem="mlY-UJ-GF8" secondAttribute="top" id="sK8-Ud-RSH"/>
+                                    <constraint firstAttribute="trailing" secondItem="mdG-Xa-nQe" secondAttribute="trailing" id="wUk-pZ-g3y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mlY-UJ-GF8" secondAttribute="trailing" constant="10" id="Eoz-KF-0gI"/>
+                            <constraint firstItem="mlY-UJ-GF8" firstAttribute="leading" secondItem="qv1-1z-FR0" secondAttribute="leading" constant="10" id="O2J-u9-usM"/>
+                            <constraint firstItem="mlY-UJ-GF8" firstAttribute="top" secondItem="qv1-1z-FR0" secondAttribute="top" constant="10" id="d8L-vc-dZH"/>
+                            <constraint firstAttribute="bottom" secondItem="mlY-UJ-GF8" secondAttribute="bottom" constant="10" id="qcm-Ex-RbC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="qv1-1z-FR0" firstAttribute="top" secondItem="Nm4-ua-szR" secondAttribute="top" id="URX-aK-Mx1"/>
+                <constraint firstAttribute="bottom" secondItem="qv1-1z-FR0" secondAttribute="bottom" id="bjb-Vk-R3X"/>
+                <constraint firstItem="qv1-1z-FR0" firstAttribute="leading" secondItem="Nm4-ua-szR" secondAttribute="leading" id="fsw-RU-Cmc"/>
+                <constraint firstAttribute="trailing" secondItem="qv1-1z-FR0" secondAttribute="trailing" id="hlT-y6-L5P"/>
+            </constraints>
+            <size key="customSize" width="200" height="255"/>
+            <connections>
+                <outlet property="containerView" destination="mlY-UJ-GF8" id="Zmq-BN-DnW"/>
+                <outlet property="placeholder" destination="mdG-Xa-nQe" id="18r-mF-rKj"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="248.77232142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>
