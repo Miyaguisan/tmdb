@@ -53,7 +53,7 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
                 else {
                     isLoadingIndicator?.animate()
                     thumbnailImageView?.isHidden = true
-                    MoviePosterManager.shared.downloadImage(for: posterURL, then: updateImage(_:_:))
+                    MoviePosterManager.shared.getThumbnail(for: posterURL, then: updateImage(_:_:))
                 }
             }
             else {

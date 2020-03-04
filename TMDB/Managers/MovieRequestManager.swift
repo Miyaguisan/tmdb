@@ -47,15 +47,10 @@ class MovieRequestManager: NSObject {
         guard let url = URL(string: "\(TMDb_API_SINGLE_URL)\(movieID)?api_key=\(TMDb_API_KEY)&language=en-US") else { return nil }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data, error == nil else { return }
+            guard let data = data, let movie = try? self.jsonDecoder.decode(Movie.self, from: data), error == nil else { return }
             
-            do {
-                let movie = try self.jsonDecoder.decode(Movie.self, from: data)
-                DispatchQueue.main.async {
-                    onComplete(movie)
-                }
-            } catch {
-                print(error)
+            DispatchQueue.main.async {
+                onComplete(movie)
             }
         }
         

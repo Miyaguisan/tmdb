@@ -14,7 +14,7 @@ class MoviePosterManager: NSObject {
         return images[urlString] as? UIImage
     }
     
-    func downloadImage(for urlString: String, then onComplete: @escaping (String, UIImage?) -> ()) {
+    func getThumbnail(for urlString: String, then onComplete: @escaping (String, UIImage?) -> ()) {
         guard !images.keys.contains(urlString) else { return }
         
         let finalURL = "\(STATIC_TMDB_URL)\(urlString)"
