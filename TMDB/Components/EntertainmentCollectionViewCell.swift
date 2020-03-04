@@ -26,7 +26,7 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
     private final let infoTypeColor = [
         MovieInfoType.date: UIColor.systemGreen,
         MovieInfoType.likes: UIColor.systemPink,
-        MovieInfoType.rating: UIColor.systemYellow
+        MovieInfoType.rating: UIColor.systemOrange
     ]
     private final let infoTypeFormat = [
         MovieInfoType.likes: NumberFormatter.Style.decimal

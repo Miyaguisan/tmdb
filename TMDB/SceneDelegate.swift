@@ -11,6 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        
         let svc = UISplitViewController()
         svc.viewControllers = [UINavigationController(rootViewController: Categories()), UINavigationController(rootViewController: MovieList())]
         svc.preferredDisplayMode = .allVisible

@@ -24,9 +24,9 @@ class MoviePosterManager: NSObject {
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data, error == nil {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     let image = UIImage(data: data)
-                    self.images[urlString] = image
+                    self?.images[urlString] = image
                     onComplete(urlString, image)
                 }
                 

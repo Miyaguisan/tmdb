@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetails" customModule="TMDB" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Detail" customModule="TMDB" customModuleProvider="target">
             <connections>
                 <outlet property="gradientView" destination="cS9-Vg-ceL" id="y7c-Hq-peb"/>
                 <outlet property="itemContainer" destination="JdW-UE-aQk" id="VGd-CS-W4l"/>
@@ -140,7 +140,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="JdW-UE-aQk" secondAttribute="bottom" id="AkG-3O-Aih"/>
                                                         <constraint firstItem="JdW-UE-aQk" firstAttribute="top" secondItem="TQn-e1-9Uq" secondAttribute="top" id="Qr5-aL-q6Y"/>
                                                         <constraint firstItem="JdW-UE-aQk" firstAttribute="leading" secondItem="TQn-e1-9Uq" secondAttribute="leading" id="hhS-dJ-6qH"/>
-                                                        <constraint firstAttribute="trailing" secondItem="JdW-UE-aQk" secondAttribute="trailing" priority="750" id="m2d-WD-EdH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JdW-UE-aQk" secondAttribute="trailing" priority="250" id="m2d-WD-EdH"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="guE-g1-d8C">
