@@ -82,16 +82,28 @@ class EntertainmentCollectionViewCell: UICollectionViewCell {
             
             switch infoType {
             case .date:
-                let date = movie?.release_date ?? show?.first_air_date ?? Date()
-                badgeCoutLabel?.text = dateFormatter.string(from: date).capitalized
+                if let date = movie?.release_date ?? show?.first_air_date {
+                    badgeCoutLabel?.text = dateFormatter.string(from: date).capitalized
+                }
+                else {
+                    badgeCoutLabel?.text = "No release date"
+                }
                 break
             case .likes:
-                let likes = movie?.vote_count ?? show?.vote_count ?? 0
-                badgeCoutLabel?.text = "\(numberFormatter.string(from: NSNumber(value:likes)) ?? "") Likes"
+                if let likes = movie?.vote_count ?? show?.vote_count {
+                    badgeCoutLabel?.text = "\(numberFormatter.string(from: NSNumber(value:likes)) ?? "") Likes"
+                }
+                else {
+                    badgeCoutLabel?.text = "No likes yet"
+                }
                 break
             case .rating:
-                let rating = movie?.vote_average ?? show?.vote_average ?? 0.0 * 100.0
-                badgeCoutLabel?.text = "\(rating)"
+                if let rating = movie?.vote_average ?? show?.vote_average {
+                    badgeCoutLabel?.text = "\(rating)"
+                }
+                else {
+                    badgeCoutLabel?.text = "No rating yet"
+                }
                 break
             default: break
             }

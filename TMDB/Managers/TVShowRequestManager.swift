@@ -31,7 +31,7 @@ class TVShowRequestManager {
     }
     
     func fetchShows(with parameters: String, service: String = "discover", then onComplete: @escaping (Bool) -> Void?) {
-        let finalURLString = "\(TMDb_API_URL)/\(service)/tv?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)&include_null_first_air_dates=false\(parameters)"
+        let finalURLString = "\(TMDb_API_URL)/\(service)/tv?api_key=\(TMDb_API_KEY)&language=\(TMDb_LANG)&include_null_first_air_dates=false&first_air_date.gte=\(TMDb_MIN_DATE)&first_air_date.lte=\(TMDb_MAX_DATE)\(parameters)"
         guard let url = URL(string: finalURLString), isBussy == false else { return }
         
         fetchTask?.cancel()

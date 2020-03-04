@@ -43,8 +43,6 @@ class TVShowList: SearchViewController {
         let query = searchText.isEmpty ? "" : "&query=\(searchText)"
         let parameters = "\(page)\(sort)\(voting)\(query)"
         
-        print("\(page)\(sort)\(voting)\(query)")
-        
         requestManager.fetchShows(with: parameters, service: searchText.isEmpty ? "discover" : "search", then: updateCollection(_:))
     }
 }
@@ -56,8 +54,8 @@ extension TVShowList: SearchViewControllerDelegate {
     
     func cell(for indexPath: IndexPath) -> UICollectionViewCell? {
         let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as? EntertainmentCollectionViewCell
-        cell?.infoType = InfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         cell?.show = requestManager.shows[indexPath.item]
+        cell?.infoType = InfoType.allCases[filterSegment?.selectedSegmentIndex ?? 0]
         
         return cell
     }
