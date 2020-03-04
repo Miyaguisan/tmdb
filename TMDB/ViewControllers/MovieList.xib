@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="collectionView" destination="51X-im-S7x" id="tMa-PN-cOL"/>
                 <outlet property="filterSegment" destination="jss-KG-ivx" id="Ni5-9t-Z02"/>
+                <outlet property="loadingIndicator" destination="qPs-yN-WUh" id="PAz-gr-yvU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -61,9 +62,19 @@
                         </collectionView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPs-yN-WUh" customClass="CircularLoadingIndicator" customModule="TMDB" customModuleProvider="target">
+                    <rect key="frame" x="182" y="428" width="50" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="59R-Ep-acY"/>
+                        <constraint firstAttribute="height" constant="50" id="aV2-ve-7fI"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="qPs-yN-WUh" firstAttribute="centerX" secondItem="7CZ-7b-wLQ" secondAttribute="centerX" id="1Tc-Cw-fBh"/>
+                <constraint firstItem="qPs-yN-WUh" firstAttribute="centerY" secondItem="7CZ-7b-wLQ" secondAttribute="centerY" id="WJx-J5-L6g"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7CZ-7b-wLQ" secondAttribute="trailing" id="XWn-e9-6Dh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7CZ-7b-wLQ" secondAttribute="bottom" id="dCo-za-C9B"/>
                 <constraint firstItem="7CZ-7b-wLQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dxk-u7-E3I"/>

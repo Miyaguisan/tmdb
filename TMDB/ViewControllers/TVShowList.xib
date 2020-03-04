@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="collectionView" destination="RBZ-eJ-xiH" id="ABK-BY-Xw1"/>
                 <outlet property="filterSegment" destination="qCj-j1-Reg" id="Z5R-c2-DcN"/>
+                <outlet property="loadingIndicator" destination="4l9-vy-hb9" id="2tv-bf-BPx"/>
                 <outlet property="view" destination="sWC-dn-Vsw" id="0AK-Rb-SjZ"/>
             </connections>
         </placeholder>
@@ -61,12 +62,22 @@
                         </collectionView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4l9-vy-hb9" customClass="CircularLoadingIndicator" customModule="TMDB" customModuleProvider="target">
+                    <rect key="frame" x="182" y="428" width="50" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Bp5-Fa-W7i"/>
+                        <constraint firstAttribute="width" constant="50" id="uQm-Qg-XMm"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zvs-Mf-hzS" firstAttribute="trailing" secondItem="TZU-42-CJk" secondAttribute="trailing" id="7Jm-05-faS"/>
                 <constraint firstItem="TZU-42-CJk" firstAttribute="leading" secondItem="zvs-Mf-hzS" secondAttribute="leading" id="DRi-WS-Ahu"/>
                 <constraint firstItem="TZU-42-CJk" firstAttribute="top" secondItem="zvs-Mf-hzS" secondAttribute="top" id="Q8q-d2-Aoi"/>
+                <constraint firstItem="4l9-vy-hb9" firstAttribute="centerX" secondItem="TZU-42-CJk" secondAttribute="centerX" id="Uds-Tt-ATv"/>
+                <constraint firstItem="4l9-vy-hb9" firstAttribute="centerY" secondItem="TZU-42-CJk" secondAttribute="centerY" id="lK4-1m-t9z"/>
                 <constraint firstItem="zvs-Mf-hzS" firstAttribute="bottom" secondItem="TZU-42-CJk" secondAttribute="bottom" id="qYq-TX-j1E"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="zvs-Mf-hzS"/>

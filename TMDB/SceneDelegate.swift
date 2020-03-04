@@ -7,6 +7,9 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var master = UINavigationController(rootViewController: Categories())
+    var moviesDetail = UINavigationController(rootViewController: MovieList())
+    var showsDetail = UINavigationController(rootViewController: TVShowList())
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
@@ -14,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         
         let svc = UISplitViewController()
-        svc.viewControllers = [UINavigationController(rootViewController: Categories()), UINavigationController(rootViewController: MovieList())]
+        svc.viewControllers = [master, moviesDetail]
         svc.preferredDisplayMode = .allVisible
         window?.rootViewController = svc
     }

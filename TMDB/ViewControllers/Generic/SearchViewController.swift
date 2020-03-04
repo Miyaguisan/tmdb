@@ -17,6 +17,7 @@ protocol SearchViewControllerDelegate {
 class SearchViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView?
     @IBOutlet weak var filterSegment: UISegmentedControl?
+    @IBOutlet weak var loadingIndicator: CircularLoadingIndicator?
     
     weak var searchBar: UISearchBar?
     var delegate: SearchViewControllerDelegate?
@@ -28,6 +29,9 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingIndicator?.color = .systemBlue
+        loadingIndicator?.lineWidth = 4
         
         definesPresentationContext = true
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -48,9 +52,11 @@ class SearchViewController: BaseViewController {
         
         currentPage += 1
         collectionView?.reloadData()
+        loadingIndicator?.stop()
     }
     
     @IBAction func selectFilter(control: UISegmentedControl) {
+        loadingIndicator?.animate()
         cancelSearch()
     }
     

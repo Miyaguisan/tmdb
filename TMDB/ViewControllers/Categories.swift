@@ -24,16 +24,16 @@ class Categories: BaseViewController {
     }
     
     @IBAction func viewMovies(button: CategoryButton) {
-        guard currentCategory != button else { return }
+        guard currentCategory != button, let vc = (view.window?.windowScene?.delegate as? SceneDelegate)?.moviesDetail else { return }
         
         currentCategory = button
-        splitViewController?.showDetailViewController(UINavigationController(rootViewController: MovieList()), sender: nil)
+        splitViewController?.showDetailViewController(vc, sender: nil)
     }
     
     @IBAction func viewTVShows(button: CategoryButton) {
-        guard currentCategory != button else { return }
+        guard currentCategory != button, let vc = (view.window?.windowScene?.delegate as? SceneDelegate)?.showsDetail else { return }
         
         currentCategory = button
-        splitViewController?.showDetailViewController(UINavigationController(rootViewController: TVShowList()), sender: nil)
+        splitViewController?.showDetailViewController(vc, sender: nil)
     }
 }
